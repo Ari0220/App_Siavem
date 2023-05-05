@@ -9,6 +9,7 @@ use App\Models\Tlicencia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\avisoLicenciaMail;
+use App\Http\Requests\FechaEmpleadoRequest;
 use Carbon\Carbon;
 
 /**
@@ -88,7 +89,7 @@ class EmpleadoController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FechaEmpleadoRequest $re)
     {
         request()->validate(Empleado::$rules);
 

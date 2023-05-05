@@ -25,11 +25,30 @@
                             @csrf
 
                             @include('motocicleta.form')
-
+                            <div id="content" style="display: none;">
+                            <div class="form-group">
+                                {{ Form::label('Luces') }}
+                                {{ Form::date('Luces', $motocicleta->Luces, ['class' => 'form-control' . ($errors->has('Luces') ? ' is-invalid' : ''), 'placeholder' => 'Luces']) }}
+                                {!! $errors->first('Luces', '<div class="invalid-feedback">Obligatorio</div>') !!}
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+@endsection
+@section('js')
+<script type="text/javascript">
+    function showContent() {
+        element = document.getElementById("content");
+        check = document.getElementById("check");
+
+        if (check.checked) {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
 @endsection

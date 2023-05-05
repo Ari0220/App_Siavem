@@ -84,7 +84,8 @@
 										<th>Lingas</th>
 										<th>Juego Llaves</th>
 										<th>Bumper</th>
-                                        <th>Documento Envio</th>
+                                        <th>Salida Unidad</th>
+                                        <th>Entrega Unidad</th>
                                         <th>Acciones</th>
                                         <th></th>
                                     </tr>
@@ -135,13 +136,16 @@
 											<td>{{ $chequeo->Lingas }}</td>
 											<td>{{ $chequeo->JuegoLlaves }}</td>
 											<td>{{ $chequeo->Bumper }}</td>
-                                            <td><a href="/Chequeo2PDF/{{ $chequeo->documentoEnvio }}" class="btn btn-sm btn-info" target="_blank">Ver</a> 
-                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoEnvio }}" class="btn btn-sm btn-info" download>Descargar</a></td>
-
                                             <td>
+                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoEnvioC }}" class="btn btn-sm btn-info" target="_blank">Ver</a> 
+                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoEnvioC }}" class="btn btn-sm btn-info" download>Descargar</a></td>
+                                            </td>
                                             <td>
-                                                <form action="{{ route('chequeos.destroy',$chequeo->idchequeos) }}" method="POST">
-                                                    
+                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoRecibidoC }}" class="btn btn-sm btn-info" target="_blank">Ver</a> 
+                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoRecibidoC }}" class="btn btn-sm btn-info" download>Descargar</a></td>
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('chequeos.destroy',$chequeo->idchequeos) }}" method="POST"> 
                                                     <a class="btn btn-sm btn-warning" href="{{ route('chequeos.edit',$chequeo->idchequeos) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

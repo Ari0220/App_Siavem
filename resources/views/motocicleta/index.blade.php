@@ -61,7 +61,8 @@
 										<th>Llanta trasera</th>
 										<th>Espejo retrovisor Derecho</th>
 										<th>Espejo retrovisor Izquierdo</th>
-                                        <th>Documento Envio</th>
+                                        <th>Salida Unidad</th>
+                                        <th>Entrega Unidad</th>
                                         <th>Acciones</th>
 
                                         <th></th>
@@ -90,9 +91,14 @@
 											<td>{{ $motocicleta->LlantaTrasera }}</td>
 											<td>{{ $motocicleta->EspejoRetrovisorD }}</td>
 											<td>{{ $motocicleta->EspejoRetrovisori }}</td>
-                                            <td><a href="/ChequeoPDF/{{ $motocicleta->documentoEnvio }}" class="btn btn-sm btn-info" target="_blank">Ver</a> 
+                                            <td>
+                                            <a href="/ChequeoPDF/{{ $motocicleta->documentoEnvio }}" class="btn btn-sm btn-info" target="_blank">Ver</a> 
                                             <a href="/ChequeoPDF/{{ $motocicleta->documentoEnvio }}" class="btn btn-sm btn-info" download>Descargar</a></td>
-
+                                            </td>
+                                            <td>
+                                            <a href="/ChequeoPDF/{{ $motocicleta->documentoRecibido }}" class="btn btn-sm btn-info" target="_blank">Ver</a> 
+                                            <a href="/ChequeoPDF/{{ $motocicleta->documentoRecibido }}" class="btn btn-sm btn-info" download>Descargar</a></td>
+                                            </td>
                                             <td>
                                                 <form action="{{ route('motocicletas.destroy',$motocicleta->idMotocicleta) }}" method="POST">
                                                     <a class="btn btn-sm btn-warning" href="{{ route('motocicletas.edit',$motocicleta->idMotocicleta) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>

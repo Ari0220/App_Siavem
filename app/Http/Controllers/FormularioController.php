@@ -15,6 +15,7 @@ use PDF;
 use App\Exports\GiraExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\GiraRequest;
+use App\Http\Requests\FechasGiraRequest;
 use Illuminate\Support\Facades\Storage;
 /**
  * Class FormularioController
@@ -128,7 +129,7 @@ class FormularioController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GiraRequest $request)
+    public function store(GiraRequest $request, FechasGiraRequest $re)
     {
         $token = Str::random(30);
         $url = $request->root();

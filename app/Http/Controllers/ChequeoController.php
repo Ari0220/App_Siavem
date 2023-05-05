@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use PDF;
 use App\Exports\ChequeoExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\FechaChequeoRequest;
+
 
 /**
  * Class ChequeoController
@@ -61,25 +63,24 @@ class ChequeoController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FechaEmpleadoRequest $re)
     {
         request()->validate(Chequeo::$rules);
 
         $chequeo  = request()->except('_token');
-
-            if($request->documentoEnvioC){
+         if($request->documentoEnvioC){
                 $fileName = $request->documentoEnvioC->getClientOriginalName();
                 $filePath = 'Chequeo2PDF/' . $fileName;
                 $path = Storage::disk('public')->put($filePath, file_get_contents($request->documentoEnvioC));
                 $path = Storage::disk('public')->url($path);
-                $motocicleta['documentoEnvioC'] = $fileName;
+                $chequeo['documentoEnvioC'] = $fileName;
             }
             if($request->documentoRecibidoC){
                 $fileName2 = $request->documentoRecibidoC->getClientOriginalName();
                 $filePath2 = 'Chequeo2PDF/' . $fileName2;
                 $path = Storage::disk('public')->put($filePath2, file_get_contents($request->documentoRecibidoC));
                 $path = Storage::disk('public')->url($path);
-                $motocicleta['documentoRecibidoC'] = $fileName2;
+                $chequeo['documentoRecibidoC'] = $fileName2;
                 
             }
             Chequeo::insert($chequeo);
@@ -88,6 +89,8 @@ class ChequeoController extends Controller
        return redirect()->route('chequeos.index')
             ->with('success', 'Chequeo creado correctamente.');
       
+
+
 
 
     }
@@ -128,9 +131,25 @@ class ChequeoController extends Controller
     public function update(Request $request, Chequeo $chequeo)
     {
         request()->validate(Chequeo::$rules);
+      
+        $chequeos  = request()->except('_token');
+        $folderPath = 'Chequeo2PDF/';
 
-        $chequeo->update($request->all());
+        if($request->documentoRecibidoC != null){
+            unlink($folderPath . $chequeo['documentoRecibidoC']);
+            $fileName2 = $request->documentoRecibidoC->getClientOriginalName();
+            $filePath2 = 'Chequeo2PDF/' . $fileName2;
+            $path = Storage::disk('public')->put($filePath2, file_get_contents($request->documentoRecibidoC));
+            $path = Storage::disk('public')->url($path);
+            $chequeos['documentoRecibidoC'] = $fileName2;
+            
+        }else{
+            $fileName = $chequeos['documentoRecibidoC'];
+            $chequeos['documentoRecibidoC'] = $fileName;
+        }
 
+
+        $chequeo->update( $chequeos);
         return redirect()->route('chequeos.index')
             ->with('success', 'Chequeo editado correctamente.');
     }

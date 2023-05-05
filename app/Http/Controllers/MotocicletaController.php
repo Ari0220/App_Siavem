@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use PDF;
 use App\Exports\MotocicletaExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\FechaMotocicletaRequest;
 
 /**
  * Class MotocicletaController
@@ -60,7 +61,7 @@ class MotocicletaController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FechaMotocicletaRequest $re)
     {
         request()->validate(Motocicleta::$rules);
 
@@ -126,17 +127,7 @@ class MotocicletaController extends Controller
 
         $motocicletas  = request()->except('_token');
         $folderPath = 'ChequeoPDF/';
-        if($request->documentoEnvio != null){
-            unlink($folderPath . $motocicleta['documentoEnvio']);
-            $fileName = $request->documentoEnvio->getClientOriginalName();
-            $filePath = 'ChequeoPDF/' . $fileName;
-            $path = Storage::disk('public')->put($filePath, file_get_contents($request->documentoEnvio));
-            $path = Storage::disk('public')->url($path);
-            $motocicletas['documentoEnvio'] = $fileName;
-        }else{
-            $fileName = $motocicletas['documentoEnvio'];
-            $motocicletas['documentoEnvio'] = $fileName;
-        }
+    
         if($request->documentoRecibido != null){
             unlink($folderPath . $motocicleta['documentoRecibido']);
             $fileName2 = $request->documentoRecibido->getClientOriginalName();

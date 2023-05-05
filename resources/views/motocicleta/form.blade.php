@@ -109,7 +109,11 @@
             </select>
             {!! $errors->first('NivelAceite', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
-        <br>
+    </div>
+</div>      
+<br>  
+<div class="box box-info padding-2">
+    <div class="box-body">
         <div class="form-group">
             {{ Form::label('Asientos: ') }}
             <select name="Asientos" id='Asientos' onchange='cambioUnidad();' required>
