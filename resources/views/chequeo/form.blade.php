@@ -10,10 +10,11 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('Fecha del Chequeo') }}
-            {{ Form::date('FechaChequeo', $chequeo->FechaChequeo, ['class' => 'form-control' . ($errors->has('FechaChequeo') ? ' is-invalid' : ''), 'placeholder' => 'Fechachequeo']) }}
-            {!! $errors->first('FechaChequeo', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
+    {{ Form::label('Fecha') }}
+    {{ Form::date('FechaChequeo', null, ['min' => \Carbon\Carbon::now()->format('Y-m-d'), 'class' => 'form-control' . ($errors->has('FechaChequeo') ? ' is-invalid' : ''), 'placeholder' => 'Fechachequeo']) }}
+    {!! $errors->first('FechaChequeo', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+
 
          <div class="form-group">
             {{ Form::label('Kilometraje') }}
@@ -466,27 +467,5 @@
                         </select>
                         {!! $errors->first('Bumper', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
                     </div>
-                    <br>
-                    @if ($chequeo->documentoEnvioC == null)
-        <div class="form-group">
-            {{ Form::label('Documento Envio') }}
-            {{ Form::file('documentoEnvioC', ['class' => 'form-control' . ($errors->has('documentoEnvioC') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
-            {!! $errors->first('documentoEnvioC', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
-        @endif
-
-        <div class="form-group">
-            {{ Form::label('Documento Recibido') }}
-            {{ Form::file('documentoRecibidoC', ['class' => 'form-control' . ($errors->has('documentoRecibidoC') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
-            {!! $errors->first('documentoRecibidoC', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
-        <br />
-                </div>
-                <br />
-            </div>
-<div class="box-footer mt20">
-    <button type="submit" class="btn btn-primary">Enviar</button>
-    <a class="btn btn-danger" href="{{ route('chequeos.index') }}"> Atras</a>
-
-</div>
+                
 </div>

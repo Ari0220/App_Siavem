@@ -1,33 +1,50 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
+    <div class="form-group">
+    {{ Form::label('Código de Contratación') }}
+    {{ Form::text('Contratacion', implode('-', str_split($tallere->Contratacion, 6)), [
+        'class' => 'form-control' . ($errors->has('Contratacion') ? ' is-invalid' : ''),
+        'placeholder' => 'Digite el código de contratación',
+        'pattern' => '^([A-Z0-9]{6}-){2}[A-Z0-9]{10}$', // Expresión regular mejorada para validar el formato
+        'title' => 'El código de contratación debe seguir el formato: 65DF51-542596-0525681562.'
+    ]) }}
+    {!! $errors->first('Contratacion', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+
+
+   <div class="form-group">
+    {{ Form::label('Nombre Taller') }}
+    {{ Form::text('NombreTaller', $tallere->NombreTaller, ['class' => 'form-control' . ($errors->has('NombreTaller') ? ' is-invalid' : ''), 'placeholder' => 'Digite el nombre del taller', 'pattern' => '^[A-Za-z\s]+$']) }}
+    {!! $errors->first('NombreTaller', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+    <small class="text-muted">El nombre del taller no debe contener números ni caracteres especiales.</small>
+   </div>
+
+   <div class="form-group">
+    {{ Form::label('Dirección') }}
+    {{ Form::text('DireccionTaller', $tallere->DireccionTaller, [
+        'class' => 'form-control' . ($errors->has('DireccionTaller') ? ' is-invalid' : ''),
+        'placeholder' => 'Digite la dirección del taller',
+        'pattern' => '^[A-Z][A-Za-z0-9\s]*$',
+        'title' => 'La dirección debe comenzar con una letra mayúscula.'
+    ]) }}
+    {!! $errors->first('DireccionTaller', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+
         <div class="form-group">
-            {{ Form::label('Código de Contratación') }}
-            {{ Form::text('Contratacion', $tallere->Contratacion, ['class' => 'form-control' . ($errors->has('Contratacion') ? ' is-invalid' : ''), 'placeholder' => 'Digite el codigo de contratacion']) }}
-            {!! $errors->first('Contratacion', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+           {{ Form::label('Descripción de la Especialidad') }}
+           {{ Form::text('DescripcionEsp', $tallere->DescripcionEsp, ['class' => 'form-control' . ($errors->has('DescripcionEsp') ? ' is-invalid' : ''), 'placeholder' => 'Digite la descripción de la especialidad', 'pattern' => '^[A-Za-z\s]+$']) }}
+           {!! $errors->first('DescripcionEsp', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+           <small class="text-muted">La descripción de la especialidad no debe contener números ni caracteres especiales.</small>
         </div>
-        <div class="form-group">
-            {{ Form::label('Nombre Taller') }}
-            {{ Form::text('NombreTaller', $tallere->NombreTaller, ['class' => 'form-control' . ($errors->has('NombreTaller') ? ' is-invalid' : ''), 'placeholder' => 'Digite el nombre del taller']) }}
-            {!! $errors->first('NombreTaller', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Dirección') }}
-            {{ Form::text('DireccionTaller', $tallere->DireccionTaller, ['class' => 'form-control' . ($errors->has('DireccionTaller') ? ' is-invalid' : ''), 'placeholder' => 'Digite la direccion del taller']) }}
-            {!! $errors->first('DireccionTaller', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Descripción de la Especialidad') }}
-            {{ Form::text('DescripcionEsp', $tallere->DescripcionEsp, ['class' => 'form-control' . ($errors->has('DescripcionEsp') ? ' is-invalid' : ''), 'placeholder' => 'Digite la descripcion de la especialidad']) }}
-            {!! $errors->first('DescripcionEsp', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
+
         <div class="form-group">
             {{ Form::label('Fecha Vencimiento Contrato') }}
             {{ Form::date('FechaVenTaller', $tallere->FechaVenTaller, ['class' => 'form-control' . ($errors->has('FechaVenTaller') ? ' is-invalid' : ''), 'placeholder' => 'Digite la fecha de vencimiento del contrato']) }}
             {!! $errors->first('FechaVenTaller', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Documento PDF') }}
+            {{ Form::label('Documento Licitacion PDF') }}
             {{ Form::file('documento', ['class' => 'form-control' . ($errors->has('documento') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
             {!! $errors->first('documento', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>

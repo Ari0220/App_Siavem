@@ -27,8 +27,7 @@ class FechaEmpleadoRequest extends FormRequest
     {
         return [
             'FechaVencimiento' => ['required', new StartDateValidate],
-          //  'FechaNacimiento' => ['required', new StartDateValidate],
-           
+            'FechaNacimiento' => 'required|date|before:'.date('Y-m-d', strtotime('-18 years')),
         ];
         if ($this->isMethod('post')) {
             return $this->createRules();

@@ -41,7 +41,7 @@ Route::get('GiraExcel', [App\Http\Controllers\FormularioController::class, 'gene
 Route::get('GiraPDF', [App\Http\Controllers\FormularioController::class, 'generarPDFTodo'])->middleware('auth')->name('GiraPDF');
 Route::post('cambiarEstado/{id}', [App\Http\Controllers\FormularioController::class, 'respuestaSolicitud'])->middleware('auth')->name('cambiarEstado');
 Route::resource('motocicletas', App\Http\Controllers\MotocicletaController::class)->middleware('auth');
-//Route::resource('usuarios', App\Http\Controllers\UsuarioController::class)->middleware('auth');
+
 
 Route::get('UnidadPDF', [App\Http\Controllers\UnidadeController::class, 'generarPDF'])->middleware('auth')->name('UnidadPDF');
 Route::get('UnidadExcel', [App\Http\Controllers\UnidadeController::class, 'generarEXCEL'])->middleware('auth')->name('UnidadExcel');
@@ -64,4 +64,9 @@ Route::get('NuevoRol/{NewEmail}/{token}', [App\Http\Controllers\UserController::
 Route::post('cambiarRol/{id}', [App\Http\Controllers\UserController::class, 'cambiarRol'])->middleware('auth')->name('cambiarRol');
 Route::resource('roles', App\Http\Controllers\RoleController::class)->middleware('auth');
 Route::resource('users', App\Http\Controllers\UserController::class)->middleware('auth');
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('pdf2/{id}', [App\Http\Controllers\ChequeoController::class, 'generarPDFChequeo'])->middleware('auth')->name('pdf2');
+Route::get('pdf3/{id}', [App\Http\Controllers\MotocicletaController::class, 'generarPDFMoto'])->middleware('auth')->name('pdf3');
+
+Route::get('welcome',[App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

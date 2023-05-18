@@ -24,13 +24,13 @@
                         <form method="POST" action="{{ route('motocicletas.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('motocicleta.form')
-                            <div id="content" style="display: none;">
-                            <div class="form-group">
-                                {{ Form::label('Luces') }}
-                                {{ Form::date('Luces', $motocicleta->Luces, ['class' => 'form-control' . ($errors->has('Luces') ? ' is-invalid' : ''), 'placeholder' => 'Luces']) }}
-                                {!! $errors->first('Luces', '<div class="invalid-feedback">Obligatorio</div>') !!}
-                            </div>
+                            @include('motocicleta.form')  
+                            <br>
+                            <div class="box-footer mt20">
+        <a class="btn btn-danger" href="{{ route('motocicletas.index') }}"> Atrás</a>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+    </div>          
                         </form>
                     </div>
                 </div>

@@ -2,11 +2,13 @@
     <div class="box-body">
         
       
-        <div class="form-group">
-            {{ Form::label('Combustible') }}
-            {{ Form::text('nombreCombustibles', $combustible->nombreCombustibles, ['class' => 'form-control' . ($errors->has('nombreCombustibles') ? ' is-invalid' : ''), 'placeholder' => 'Digite el tipo de combustible']) }}
-            {!! $errors->first('nombreCombustibles', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
+    <div class="form-group">
+    {{ Form::label('Combustible') }}
+    {{ Form::text('nombreCombustibles', $combustible->nombreCombustibles, ['class' => 'form-control' . ($errors->has('nombreCombustibles') ? ' is-invalid' : ''), 'placeholder' => 'Digite el tipo de combustible (Ejemplo: Combustible Super)', 'pattern' => '[A-Za-z ]+', 'title' => 'Solo se permiten letras']) }}
+    {!! $errors->first('nombreCombustibles', '<div class="invalid-feedback">:message</div>') !!}
+</div>
+
+
 
     </div>
     <br>

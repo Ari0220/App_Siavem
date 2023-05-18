@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -32,7 +33,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/welcome';
 
     /**
      * Create a new controller instance.
@@ -71,7 +73,7 @@ class RegisterController extends Controller
         $url = env('APP_URL');//Cuando se suba al hosting tine que agregar esta variable de entorno, el cual es el link si no van a tener problemas
         $NewEmail = $data['email'];
         $newLink = "$url/NuevoRol/$NewEmail/$token";
-        $email = "arianaleal0220@gmail.com";
+        $email = "da598298@gmail.com";
         $messages = "Solicitud cambio de rol usuario $NewEmail";
         Mail::to($email)->send(new RolMail($email,$messages,$newLink));
         return User::create([
@@ -83,6 +85,7 @@ class RegisterController extends Controller
             'token'=> $token, 
             'remember_token' => $token,
         ]);
-
+      
     }
+   
 }

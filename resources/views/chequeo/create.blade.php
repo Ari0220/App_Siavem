@@ -25,7 +25,12 @@
                             @csrf
 
                             @include('chequeo.form')
+                            <br>
+                    <div class="box-footer mt20">
+                          <a class="btn btn-danger" href="{{ route('chequeos.index') }}"> Atrás</a>
+                          <button type="submit" class="btn btn-primary">Enviar</button>
 
+                    </div>
                         </form>
                     </div>
                 </div>

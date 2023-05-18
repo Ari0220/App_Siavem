@@ -1,23 +1,49 @@
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+
+</head>
+
+    <style>
+        .invalid-feedback {
+    display: none;
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+    </style>
+
 <div class="box box-info padding-1">
     <div class="box-body">
-
-
+        <!-- Primera parte del formulario -->
+        <div class="card" id="parte1">
+            <div class="card-body">
+            <a id="primera-parte"></a>
+                <!-- Campos de la primera parte del formulario -->
         <div class="form-group">
             {{ Form::label('Placa') }}
-            {{ Form::select('unidad_id', $unidade, $motocicleta->unidad_id, ['class' => 'form-control' . ($errors->has('unidad_id') ? ' is-invalid' : ''), 'placeholder' => '']) }}
+            {{ Form::select('unidad_id', $unidade, $motocicleta->unidad_id, ['class' => 'form-control' . ($errors->has('unidad_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione']) }}
             {!! $errors->first('unidad_id', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('Fecha') }}
-            {{ Form::date('FechaChequeoM', $motocicleta->FechaChequeoM, ['class' => 'form-control' . ($errors->has('FechaChequeoM') ? ' is-invalid' : ''), 'placeholder' => 'Fechachequeom']) }}
-            {!! $errors->first('FechaChequeoM', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('Kilometraje') }}
-            {{ Form::text('Kilometraje', $motocicleta->Kilometraje, ['class' => 'form-control' . ($errors->has('Kilometraje') ? ' is-invalid' : ''), 'placeholder' => 'Kilometraje']) }}
-            {!! $errors->first('Kilometraje', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
+       <div style="float:right; width:50%;">
+    <div class="form-group">
+        {{ Form::label('Fecha') }}
+        {{ Form::date('FechaChequeoM', null, ['min' => \Carbon\Carbon::now()->format('Y-m-d'), 'class' => 'form-control' . ($errors->has('FechaChequeoM') ? ' is-invalid' : ''), 'placeholder' => 'Fechachequeom']) }}
+        {!! $errors->first('FechaChequeoM', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+    </div>
+  
+    <div class="form-group">
+        {{ Form::label('Kilometraje') }}
+        {{ Form::number('Kilometraje', $motocicleta->Kilometraje, ['class' => 'form-control' . ($errors->has('Kilometraje') ? ' is-invalid' : ''), 'placeholder' => 'Kilometraje']) }}
+        {!! $errors->first('Kilometraje', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+    </div>
+</div>
+      
         <br />
+       
         <div class="form-group">
             {{ Form::label('Combustible: ') }}
             <select name="Combustible" id='Combustible' onchange='cambioUnidad();' required>
@@ -29,6 +55,7 @@
             </select>
             {!! $errors->first('Combustible', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
+     
         <br />
         <div class="form-group">
             {{ Form::label('Luz Baja: ') }}
@@ -62,7 +89,23 @@
             </select>
             {!! $errors->first('LuzMarcha', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
-        <br>
+    
+        </div>
+       
+               <!-- Botón para ir al índice -->
+               <a href="{{ route('unidades.index') }}" class="btn btn-warning">
+                  <i class="fa fa-home"></i> 
+                </a>
+
+                
+                <!-- Botón para pasar a la siguiente parte del formulario -->
+                <button type="button" id="next-button" class="btn btn-primary">Siguiente</button>
+            </div>
+        </div>
+        <!-- Segunda parte del formulario -->
+        <div class="card" id="parte2" style="display: none;">
+            <div class="card-body">
+                <!-- Campos de la segunda parte del formulario -->
         <div class="form-group">
             {{ Form::label('Pito: ') }}
             <select name="Pito" id='Pito' onchange='cambioUnidad();' required>
@@ -109,11 +152,7 @@
             </select>
             {!! $errors->first('NivelAceite', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
-    </div>
-</div>      
-<br>  
-<div class="box box-info padding-2">
-    <div class="box-body">
+        <br>
         <div class="form-group">
             {{ Form::label('Asientos: ') }}
             <select name="Asientos" id='Asientos' onchange='cambioUnidad();' required>
@@ -203,26 +242,46 @@
                 <option value="Malo" {{ $motocicleta->EspejoRetrovisorD == 'Malo' ? 'selected' : '' }}>Malo</option>
             </select>
             {!! $errors->first('EspejoRetrovisori', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-            <br>
-        @if ($motocicleta->documentoEnvio == null)
-        <br>
-        <div class="form-group">
-            {{ Form::label('Documento Envio') }}
-            {{ Form::file('documentoEnvio', ['class' => 'form-control' . ($errors->has('documentoEnvio') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
-            {!! $errors->first('documentoEnvio', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+         
         </div>
-        @endif
-
-        <div class="form-group">
-            {{ Form::label('Documento Recibido') }}
-            {{ Form::file('documentoRecibido', ['class' => 'form-control' . ($errors->has('documentoRecibido') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
-            {!! $errors->first('documentoRecibido', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
-        <br />
-    </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Enviar</button>
-        <a class="btn btn-danger" href="{{ route('motocicletas.index') }}"> Atrás</a>
-
-    </div>
 </div>
+ <!-- Botones para pasar a la siguiente parte o enviar el formulario -->
+ <div class="box-footer mt-20">
+    <button type="button" class="btn btn-danger" id="back-button">Atrás</button>
+    <button type="submit" id="submit-button" class="btn btn-primary ml-2">Enviar</button>
+</div>
+
+
+        </div>
+       
+
+        </div>
+   
+
+
+<script>
+    // Obtén referencias a los elementos del DOM
+    const parte1 = document.getElementById("parte1");
+    const parte2 = document.getElementById("parte2");
+    const nextButton = document.getElementById("next-button");
+    const submitButton = document.getElementById("submit-button");
+    const backButton = document.getElementById("back-button");
+
+  
+
+    // Agrega un evento al botón "Siguiente"
+    nextButton.addEventListener("click", function() {
+        parte1.style.display = "none";
+        parte2.style.display = "block";
+        
+     
+    
+  });
+    // Agrega un evento al botón "Atrás"
+    backButton.addEventListener("click", function() {
+        parte2.style.display = "none";
+        parte1.style.display = "block";
+       
+    });
+
+</script>

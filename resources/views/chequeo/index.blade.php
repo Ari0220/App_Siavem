@@ -147,6 +147,7 @@
                                             <td>
                                                 <form action="{{ route('chequeos.destroy',$chequeo->idchequeos) }}" method="POST"> 
                                                     <a class="btn btn-sm btn-warning" href="{{ route('chequeos.edit',$chequeo->idchequeos) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    <a class="btn btn-sm btn-info" href="{{ route('pdf2',$chequeo->idchequeos) }}"><i class="fa fa-fw fa-edit"></i> PDF</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>

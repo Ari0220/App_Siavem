@@ -1,3 +1,4 @@
+
 <div class="box box-info padding-1">
     <div class="box-body">
         <div class="form-group">
@@ -16,23 +17,24 @@
             {{ Form::label('Nombre completo acompañantes') }}
             {{ Form::text('NumePersonas', $formulario->NumePersonas, ['class' => 'form-control' . ($errors->has('NumePersonas') ? ' is-invalid' : ''), 'placeholder' => 'Numero de personas']) }}
             {!! $errors->first('NumePersonas', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
+        </div>      
+        <div class="form-group">
+    {{ Form::label('Fecha Salida') }}
+    {{ Form::date('FechaSalida', null, ['class' => 'form-control' . ($errors->has('FechaSalida') ? ' is-invalid' : ''), 'placeholder' => 'Fechasalida', 'min' => now()->format('Y-m-d'), 'disabledDates' => \Carbon\CarbonPeriod::create(now()->format('Y-m-d'), now()->addYear()->format('Y-m-d'))]) }}
+    {!! $errors->first('FechaSalida', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
 
-        <div class="form-group">
-            {{ Form::label('Fecha Salida') }}
-            {{ Form::date('FechaSalida', $formulario->FechaSalida, ['class' => 'form-control' . ($errors->has('FechaSalida') ? ' is-invalid' : ''), 'placeholder' => 'Fechasalida']) }}
-            {!! $errors->first('FechaSalida', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Hora Salida') }}
-            {{ Form::time('HoraS', $formulario->HoraS, ['class' => 'form-control' . ($errors->has('HoraS') ? ' is-invalid' : ''), 'placeholder' => 'Horas']) }}
-            {!! $errors->first('HoraS', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Fecha Regreso') }}
-            {{ Form::date('FechaRegreso', $formulario->FechaRegreso, ['class' => 'form-control' . ($errors->has('FechaRegreso') ? ' is-invalid' : ''), 'placeholder' => 'Fecharegreso']) }}
-            {!! $errors->first('FechaRegreso', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
+       <div class="form-group">
+    {{ Form::label('Hora Salida') }}
+    {{ Form::time('HoraS', $formulario->HoraS, ['class' => 'form-control' . ($errors->has('HoraS') ? ' is-invalid' : ''), 'placeholder' => 'Horas', 'id' => 'hora_salida']) }}
+    {!! $errors->first('HoraS', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+<div class="form-group">
+    {{ Form::label('Fecha Regreso') }}
+    {{ Form::date('FechaRegreso', $formulario->FechaRegreso, ['min' => \Carbon\Carbon::now()->format('Y-m-d'), 'class' => 'form-control' . ($errors->has('FechaRegreso') ? ' is-invalid' : ''), 'placeholder' => 'Fecharegreso']) }}
+    {!! $errors->first('FechaRegreso', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+
         <div class="form-group">
             {{ Form::label('Hora Regreso') }}
             {{ Form::time('HoraR', $formulario->HoraR, ['class' => 'form-control' . ($errors->has('HoraR') ? ' is-invalid' : ''), 'placeholder' => 'Horar']) }}
@@ -47,10 +49,11 @@
 
 
         <div class="form-group">
-            {{ Form::label('Destino') }}
-            {{ Form::text('Lugar', $formulario->Lugar, ['class' => 'form-control' . ($errors->has('Lugar') ? ' is-invalid' : ''), 'placeholder' => 'Escriba el provincia, canton y distrito']) }}
-            {!! $errors->first('Lugar', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
+    {{ Form::label('Destino') }}
+    {{ Form::text('Lugar', $formulario->Lugar, ['pattern' => '[A-Za-z,]+', 'class' => 'form-control' . ($errors->has('Lugar') ? ' is-invalid' : ''), 'placeholder' => 'Escriba el provincia, canton y distrito']) }}
+    {!! $errors->first('Lugar', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+
         <div class="form-group">
             {{ Form::label('Vehiculo') }}
             {{ Form::select('categoria_id',$categorias,$formulario->categoria_id, ['class' => 'form-control' . ($errors->has('categoria_id') ? ' is-invalid' : ''), 'placeholder' => 'Selecione un tipo de vehiculo']) }}
@@ -63,12 +66,13 @@
             {!! $errors->first('chofer', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Observaciones') }}
-            {{ Form::text('Observaciones', $formulario->Observaciones, ['class' => 'form-control' . ($errors->has('Observaciones') ? ' is-invalid' : ''), 'placeholder' => 'Observaciones']) }}
-            {!! $errors->first('Observaciones', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
+    {{ Form::label('Observaciones') }}
+    {{ Form::text('Observaciones', $formulario->Observaciones, ['pattern' => '^$', 'class' => 'form-control' . ($errors->has('Observaciones') ? ' is-invalid' : ''), 'placeholder' => 'Observaciones']) }}
+    {!! $errors->first('Observaciones', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+
         <div class="form-group">
-            {{ Form::label('Documento PDF') }}
+            {{ Form::label('Documento Autorizacion') }}
             {{ Form::file('documento', ['class' => 'form-control' . ($errors->has('documento') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
             {!! $errors->first('documento', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>

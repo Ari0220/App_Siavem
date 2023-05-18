@@ -26,7 +26,26 @@
                             @csrf
 
                             @include('chequeo.form')
+                            <br>
+                    @if ($chequeo->documentoEnvioC == null)
+        <div class="form-group">
+            {{ Form::label('Documento Envio') }}
+            {{ Form::file('documentoEnvioC', ['class' => 'form-control' . ($errors->has('documentoEnvioC') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
+            {!! $errors->first('documentoEnvioC', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+        </div>
+        @endif
 
+        <div class="form-group">
+            {{ Form::label('Documento Recibido') }}
+            {{ Form::file('documentoRecibidoC', ['class' => 'form-control' . ($errors->has('documentoRecibidoC') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
+            {!! $errors->first('documentoRecibidoC', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+        </div>
+        <br />
+    
+        <div class="box-footer mt20">
+             <button type="submit" class="btn btn-primary">Enviar</button>
+             <a class="btn btn-danger" href="{{ route('chequeos.index') }}"> Atras</a>
+        </div>
                         </form>
                     </div>
                 </div>

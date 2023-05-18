@@ -40,6 +40,21 @@ class MotocicletaController extends Controller
         $unidade = Unidade::pluck('placa','idUnidad');
         return view('motocicleta.create', compact('motocicleta','unidade'));
     }
+    public function generarPDFMoto($id){
+        
+
+        $info = Motocicleta::where('idMotocicleta',$id)->get();
+
+        $data = [
+            'title' => 'Inspecion de Motocicletas',
+            'date' => date('m/d/Y'),
+            'info' => $info
+        ]; 
+            
+        $pdf3 = PDF::loadView('motocicleta.PDF2', $data);
+     
+        return $pdf3->download('Listado de inspeccion.pdf');
+    }
     public function generarPDF(){
         $info = Motocicleta::get();
         $data = [
@@ -127,21 +142,33 @@ class MotocicletaController extends Controller
 
         $motocicletas  = request()->except('_token');
         $folderPath = 'ChequeoPDF/';
-    
-        if($request->documentoRecibido != null){
+        
+        if($motocicleta['documentoEnvio']){
+            unlink($folderPath . $motocicleta['documentoEnvio']);
+        }
+        if($motocicleta['documentoRecibido']){
             unlink($folderPath . $motocicleta['documentoRecibido']);
+        }
+
+        if($request->documentoEnvio){
+            $fileName = $request->documentoEnvio->getClientOriginalName();
+            $filePath = 'ChequeoPDF/' . $fileName;
+            $path = Storage::disk('public')->put($filePath, file_get_contents($request->documentoEnvio));
+            $path = Storage::disk('public')->url($path);
+            $motocicletas['documentoEnvio'] = $fileName;
+        }
+        if($request->documentoRecibido){
             $fileName2 = $request->documentoRecibido->getClientOriginalName();
             $filePath2 = 'ChequeoPDF/' . $fileName2;
-            $path2 = Storage::disk('public')->put($filePath2, file_get_contents($request->documentoRecibido));
-            $path2 = Storage::disk('public')->url($path2);
+            $path = Storage::disk('public')->put($filePath2, file_get_contents($request->documentoRecibido));
+            $path = Storage::disk('public')->url($path);
             $motocicletas['documentoRecibido'] = $fileName2;
-        }else{
-            $fileName = $motocicletas['documentoRecibido'];
-            $motocicletas['documentoRecibido'] = $fileName;
+            
         }
+
         $motocicleta->update($motocicletas);
         return redirect()->route('motocicletas.index')
-            ->with('success', 'Inspeccion Motocicleta editado correctamente.');
+            ->with('success', 'Motocicleta updated successfully');
     }
 
     /**
@@ -151,12 +178,12 @@ class MotocicletaController extends Controller
      */
     public function destroy($id)
     {
-        $folderPath = 'ChequeoPDF/';
-        $motocicleta = Motocicleta::find($id);
-        if($motocicleta['documentoEnvio']){
-            unlink($folderPath . $motocicleta['documentoEnvio']);
-        }
-        if($motocicleta['documentoRecibido']){
+      //  $folderPath = 'ChequeoPDF/';
+        //$motocicleta = Motocicleta::find($id);
+        //if($motocicleta['documentoEnvio']){
+          //  unlink($folderPath . $motocicleta['documentoEnvio']);
+        //}
+        /*if($motocicleta['documentoRecibido']){
             unlink($folderPath . $motocicleta['documentoRecibido']);
         }
 
@@ -164,6 +191,10 @@ class MotocicletaController extends Controller
         $motocicletas = Motocicleta::find($id)->delete();
 
         return redirect()->route('motocicletas.index')
+            ->with('success', 'Inspeccion Motocicleta eliminado correctamente.');*/
+            $motocicletas = Motocicleta::find($id)->delete();
+
+            return redirect()->route('motocicletas.index')
             ->with('success', 'Inspeccion Motocicleta eliminado correctamente.');
     }
 }

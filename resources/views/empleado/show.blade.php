@@ -83,7 +83,9 @@
                         <br>
                         <div class="form-group">
                             <strong>Foto Licencia:</strong>
-                            <img src="{{ asset('storage').'/'.$empleado->FotoLicencia }}" width="150" alt=""> 
+
+                        <img src="{{ asset('empleado/'.$empleado->FotoLicencia) }}" width="250" alt="" title="" />
+
                         </div>
 
                     </div>

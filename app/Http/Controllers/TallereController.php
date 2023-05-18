@@ -110,7 +110,7 @@ class TallereController extends Controller
      * @param  Tallere $tallere
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tallere $tallere)
+   /* public function update(Request $request, Tallere $tallere)
     {
         $folderPath = 'TallerPDF/';
         request()->validate(Tallere::$rules);
@@ -132,7 +132,35 @@ class TallereController extends Controller
 
         return redirect()->route('talleres.index')
             ->with('success', 'Taller editado correctamente');
+    }*/
+     
+    public function update(Request $request, Tallere $tallere)
+{
+    $folderPath = 'TallerPDF/';
+    request()->validate(Tallere::$rules);
+    $taller = request()->except('_token');
+
+    if ($request->hasFile('documento')) {
+        $existingDocument = $tallere->documento;
+
+        if (!empty($existingDocument)) {
+            unlink($folderPath . $existingDocument);
+        }
+
+        $fileName = $request->documento->getClientOriginalName();
+        $filePath = 'TallerPDF/' . $fileName;
+        $path = Storage::disk('public')->put($filePath, file_get_contents($request->documento));
+        $path = Storage::disk('public')->url($path);
+        $taller['documento'] = $fileName;
+    } else {
+        $taller['documento'] = $tallere->documento;
     }
+
+    $tallere->update($taller);
+
+    return redirect()->route('talleres.index')
+        ->with('success', 'Taller editado correctamente');
+}
 
     /**
      * @param int $id

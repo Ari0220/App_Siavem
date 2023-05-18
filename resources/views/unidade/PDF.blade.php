@@ -5,140 +5,96 @@
     <title>PDF</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+ .table-container {
+  max-width: 100%;
+  overflow-x: scroll;
+ 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+  font-size: 8px; /* Cambia el tamaño de fuente */
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #44c767; /* Cambia el color de fondo */
+  color: #fff; /* Cambia el color de letra */
+  z-index: 2;
+}
+
+tr {
+  transition: background-color 0.2s ease;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+h1 {
+        margin-top: 20px;
+        text-align: center;
+    }
+    .date {
+    text-align: right;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+    </style>
 </head>
 
 <body>
-    <style>
-        .mini_tabla {
-            border: 1px solid #e2e2e2;
-            display: flex;
-        }
 
-        .tittle {
-            background: #f0ecec99;
-        }
-
-        .tittle,
-        .description {
-            width: 96.5%;
-            border: 2px solid #eeeeee;
-            margin: 5px 5px;
-            padding: 5px;
-        }
-    </style>
-    <h1>{{ $title }}</h1>
-    <p>{{ $date }}</p>
-    @php($count=1)
-    @foreach ($info as $unidade)
-        <div class="mini_tabla">
-            <h3>Unidad  {{$count}}</h3>
-            <div class="tittle">
-                <span>Categoría</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->categoria->nombre }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Tracción</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->traccione->nombreTraccion }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Combustible</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->combustible->nombreCombustibles }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Estado</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->combustible->nombreEstados }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Placa</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->placa }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Marca</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->marca }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Modelo</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->modelo }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Estilo</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->estilo }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Color</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->color }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Año de fabricación</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->ayoFabricacion }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Contratación</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->contratacion }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Valor Adquisitivo</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->valorAdqui }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Valor Hacienda</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->valorHacienda }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>RTV</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->RVT }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Descripción</span>
-            </div>
-            <div class="description">
-                <span>{{ $unidade->descripcion }}</span>
-            </div>
-        </div>
-        @php($count++)
-    @endforeach
+<h1>{{ $title }}</h1>
+    <div class="date">{{ $date }}</div>
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>N</th>
+                <th>Categoría</th>
+                <th>Tracción</th>
+                <th>Combustible</th>
+                <th>Estado</th>
+                <th>Placa</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php($count=1)
+            @foreach ($info as $unidade)
+            <tr>
+                <td> {{$count}}</td>
+                <td>{{ $unidade->categoria->nombre }}</td>
+                <td>{{ $unidade->traccione->nombreTraccion }}</td>
+                <td>{{ $unidade->combustible->nombreCombustibles }}</td>
+                <td>{{ $unidade->estado->nombreEstados }}</td>
+                <td>{{ $unidade->placa }}</td>
+                <td>{{ $unidade->marca }}</td>
+                <td>{{ $unidade->modelo }}</td>
+            </tr>
+            @php($count++)
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 </body>
 

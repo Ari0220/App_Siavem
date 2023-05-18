@@ -2,11 +2,14 @@
     <div class="box-body">
         
       
-        <div class="form-group">
-            {{ Form::label('nombre Departamento') }}
-            {{ Form::text('nombreDepa', $departamento->nombreDepa, ['class' => 'form-control' . ($errors->has('nombreDepa') ? ' is-invalid' : ''), 'placeholder' => 'Digite el nombre del departamento']) }}
-            {!! $errors->first('nombreDepa', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-        </div>
+    <div class="form-group">
+    {{ Form::label('nombre Departamento') }}
+    {{ Form::text('nombreDepa', ucfirst(strtolower($departamento->nombreDepa)), ['class' => 'form-control' . ($errors->has('nombreDepa') ? ' is-invalid' : ''), 'placeholder' => 'Digite el nombre del departamento', 'pattern' => '^[A-Z][a-záéíóúñ]+(\s+[A-Z][a-záéíóúñ]+)*$']) }}
+    {!! $errors->first('nombreDepa', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+
+
+
 
     </div>
     </br>

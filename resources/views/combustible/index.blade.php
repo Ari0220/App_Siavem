@@ -50,7 +50,7 @@
                                 <tbody>
                                     @foreach ($combustibles as $combustible)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                        <td>{{ $combustible->idCombustibles }}</td>
                                        
 											<td>{{ $combustible->nombreCombustibles }}</td>
 

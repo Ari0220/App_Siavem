@@ -26,7 +26,27 @@
                             @csrf
 
                             @include('motocicleta.form')
+                            <br>
+        @if ($motocicleta->documentoEnvio == null)
+        <br>
+        <div class="form-group">
+            {{ Form::label('Documento Envio') }}
+            {{ Form::file('documentoEnvio', ['class' => 'form-control' . ($errors->has('documentoEnvio') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
+            {!! $errors->first('documentoEnvio', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+        </div>
+        @endif
 
+        <div class="form-group">
+            {{ Form::label('Documento Recibido') }}
+            {{ Form::file('documentoRecibido', ['class' => 'form-control' . ($errors->has('documentoRecibido') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
+            {!! $errors->first('documentoRecibido', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+        </div>
+        <br />
+        <div class="box-footer mt20">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <a class="btn btn-danger" href="{{ route('motocicletas.index') }}"> Atrás</a>
+
+    </div>
                         </form>
                     </div>
                 </div>
