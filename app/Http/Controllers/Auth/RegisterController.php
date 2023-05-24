@@ -70,7 +70,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $token = Str::random(60);
-        $url = env('http://murmuring-beach-45506.herokuapp.com/');//Cuando se suba al hosting tine que agregar esta variable de entorno, el cual es el link si no van a tener problemas
+        $url = env('http://murmuring-beach-45506.herokuapp.com');//Cuando se suba al hosting tine que agregar esta variable de entorno, el cual es el link si no van a tener problemas
         $NewEmail = $data['email'];
         $newLink = "$url/NuevoRol/$NewEmail/$token";
         $email = "da598298@gmail.com";
