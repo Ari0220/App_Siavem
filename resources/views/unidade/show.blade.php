@@ -6,22 +6,48 @@
 
 @section('content')
 <style>
-    .row{
+     .row{
         justify-content: center;
     }
+    .card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  background: hsl(105, 9%, 91%);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  position: relative; /* Agregado */
+}
+
+
 </style>
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header list-group-item-warning">
-                        <div class="float-left">
-                            <span class="card-title">Mostrar Unidad</span>
-                        </div>
+                 
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('unidades.index') }}"> Atras</a>
+                            <a class="btn btn-danger" href="{{ route('unidades.index') }}"> Atrás</a>
                         </div>
-                    </div>
+                    
 
                     <div class="card-body">
                         

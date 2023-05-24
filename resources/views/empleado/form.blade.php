@@ -48,14 +48,16 @@
        {!! $errors->first('Cedula', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
       </div>
       <div class="form-group">
-        {{ Form::label('Telefono') }}
-        {{ Form::text('Telefono', $empleado->Telefono, ['class' => 'form-control' . ($errors->has('Telefono') ? ' is-invalid' : ''), 'placeholder' => 'Digite el número de teléfono', 'maxlength' => '8', 'pattern' => '^[8|2|7]\d{7}$', 'title' => 'Campo obligatorio. Ingrese solo números']) }}
-         {!! $errors->first('Telefono', '<div class="invalid-feedback">:message</div>') !!}
-       </div>
+    {{ Form::label('Telefono') }}
+    {{ Form::text('Telefono', $empleado->Telefono, ['class' => 'form-control' . ($errors->has('Telefono') ? ' is-invalid' : ''), 'placeholder' => 'Digite el número de teléfono', 'maxlength' => '8', 'pattern' => '^\d{8}$', 'title' => 'Campo obligatorio. Ingrese solo 8 dígitos']) }}
+    {!! $errors->first('Telefono', '<div class="invalid-feedback">:message</div>') !!}
+</div>
+
+
 
         <div class="form-group">
             {{ Form::label('Correo Institucional') }}
-            {{ Form::text('CorreoInstitucional', $empleado->CorreoInstitucional, ['class' => 'form-control' . ($errors->has('CorreoInstitucional') ? ' is-invalid' : ''), 'placeholder' => 'Digite el Correo Institucional']) }}
+            {{ Form::email('CorreoInstitucional', $empleado->CorreoInstitucional, ['class' => 'form-control' . ($errors->has('CorreoInstitucional') ? ' is-invalid' : ''), 'placeholder' => 'Digite el Correo Institucional']) }}
             {!! $errors->first('CorreoInstitucional', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
         <div id="content">
@@ -78,9 +80,6 @@
         </div>
     @endif
 </div>
-
-
-
     <br>
  <!--   <label for="FotoLicencia">Foto Licencia: </label>
     <br/>
@@ -105,6 +104,4 @@
     </div> 
 
     </div>
-    
-
 </div>

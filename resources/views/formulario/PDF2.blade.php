@@ -9,124 +9,115 @@
 
 <body>
     <style>
-        .mini_tabla {
-            border: 1px solid #e2e2e2;
-            display: flex;
+        .card {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
         }
 
-        .tittle {
-            background: #f0ecec99;
+        .formulario-gira {
+            width: 100%;
         }
 
-        .tittle,
-        .description {
-            width: 96.5%;
-            border: 2px solid #eeeeee;
-            margin: 5px 5px;
-            padding: 5px;
+        .formulario-gira .columna {
+            display: inline-block;
+            width: 48%;
+            margin-right: 2%;
+            vertical-align: top; /* Alinea los elementos en la parte superior */
+        }
+
+        .formulario-gira .columna:last-child {
+            margin-right: 0;
+        }
+
+        .formulario-gira .campo {
+            margin-bottom: 10px;
+        }
+
+        .formulario-gira .campo label {
+            font-weight: bold;
+            font-size: 14px; /* Tamaño de letra más pequeño */
+            display: inline-block;
+            width: 120px; /* Ancho fijo para las etiquetas */
+        }
+
+        .formulario-gira .campo span {
+            display: inline-block;
+            width: calc(100% - 120px); /* Ancho calculado para los valores */
+            font-size: 14px; /* Tamaño de letra más pequeño */
         }
     </style>
-    <h1>{{ $title }}</h1>
-    <p>{{ $date }}</p>
-    @php($count = 1)
-    @foreach ($info as $item)
-        <div class="mini_tabla">
-            <h3>Gira #{{ $count }}</h3>
-            <div class="tittle">
-                <span>Categoria</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->categoria->nombre }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Departamento</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->departamento->nombreDepa }}</span>
-            </div>
-            <!---->
-            <!---->
-            <div class="tittle">
-                <span>Empleado</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->empleado->Cedula }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Objetivo</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->Objetivo }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Fecha de Salida</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->FechaSalida }}</span>
-            </div>
-            <!------>
-            <div class="tittle">
-                <span>Hora de Salida</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->HoraS }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Fecha de Regreso</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->FechaRegreso }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Hora Regreso</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->HoraR }}</span>
-            </div>
-            <!------>
-            <!---->            <!---->
-            <!---->
-            <div class="tittle">
-                <span>Empleado</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->empleado->Cedula }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Observaciones</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->Observaciones }}</span>
-            </div>            
-            <!---->
-            <div class="tittle">
-                <span>Estado</span>
-            </div>
-            <div class="description">
-                @if($item->estado == 1)
-                <span>Aceptado</span>
-            @else
-                <span>Rechazado</span>
-            
-            @endif
-            </div>
-            <div class="tittle">
-                <span>Placa</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->placa }}</span>
-            </div>  
-
+    <div class="card">
+        <div class="card-header text-center">
+            <h1>{{ $title }}</h1>
+            <p>{{ $date }}</p>
         </div>
-        @php($count++)
-    @endforeach
+        <div class="card-body">
+            <form class="formulario-gira">
+                @php($count = 1)
+                @foreach ($info as $item)
+                    <div class="columna">
+                        <div class="campo">
+                            <label>Codigo: {{ $item->idFormularios }}</label>
+                        </div>
+                        <div class="campo">
+                            <label>Categoría:</label>
+                            <span>{{ $item->categoria->nombre }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Departamento:</label>
+                            <span>{{ $item->departamento->nombreDepa }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Objetivo:</label>
+                            <span>{{ $item->Objetivo }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Acompañantes:</label>
+                            <span>{{ $item->NumePersonas  }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Destino:</label>
+                            <span>{{ $item->Lugar }}</span>
+                        </div>
 
+                    </div>
+                    <div class="columna">
+                        <div class="campo">
+                            <label>Fecha de Salida:</label>
+                            <span>{{ $item->FechaSalida }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Hora de Salida:</label>
+                            <span>{{ $item->HoraS }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Fecha de Regreso:</label>
+                            <span>{{ $item->FechaRegreso }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Hora de Regreso:</label>
+                            <span>{{ $item->HoraR }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Observaciones:</label>
+                            <span>{{ $item->Observaciones }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Estado:</label>
+                            <span>{{ $item->estado == 1 ? 'Aceptado' : 'Rechazado' }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Placa:</label>
+                            <span>{{ $item->placa }}</span>
+                        </div>
+                    </div>
+                    @php($count++)
+                @endforeach
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

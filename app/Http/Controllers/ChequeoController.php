@@ -46,18 +46,17 @@ class ChequeoController extends Controller
 
     public function generarPDFChequeo($id){
         
-
         $info = Chequeo::where('idchequeos',$id)->get();
 
         $data = [
-            'title' => 'Inspecion',
+            'title' => 'Inspecion de Automoviles y Busetas',
             'date' => date('m/d/Y'),
             'info' => $info
         ]; 
             
         $pdf2 = PDF::loadView('chequeo.PDF2', $data);
      
-        return $pdf2->download('Listado de inspeccion.pdf');
+        return $pdf2->download('Inspeccion Automovil .pdf');
     }
 
 

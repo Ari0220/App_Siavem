@@ -1,32 +1,94 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>PDF</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+ .table-container {
+  max-width: 100%;
+  overflow-x: scroll;
+ 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+  font-size: 8px; /* Cambia el tamaño de fuente */
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #44c767; /* Cambia el color de fondo */
+  color: #fff; /* Cambia el color de letra */
+  z-index: 2;
+}
+
+tr {
+  transition: background-color 0.2s ease;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+h1 {
+        margin-top: 20px;
+        text-align: center;
+    }
+    .date {
+    text-align: right;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+    </style>
 </head>
+
 <body>
-    <h1>{{ $title }}</h1>
-    <p>{{ $date }}</p>
-    <p></p>
-  
-    @foreach($info as $informacion)
-    <h5>Total Personas</h5>
-    <span>{{ $informacion->NumePersonas }}</span>
-    <br>
-    <h5>Fecha Salida</h5>
-    <span>{{ $informacion->FechaSalida }}</span><br>
-    <h5>Fecha Regreso</h5>
-    <span>{{ $informacion->FechaRegreso }}</span><br>
-    <h5>Hora de salida</h5>
-    <span>{{ $informacion->HoraS }}</span><br>
-    <h5>Hora de regreso</h5>
-    <span>{{ $informacion->HoraR }}</span><br>
-    <h5>Lugar</h5>
-    <span>{{ $informacion->Lugar }}</span><br>
-    <h5>Autorizacion</h5>
-    <span>{{ $informacion->documento }}</span>
-    <br>
-    @endforeach
-  
+
+<h1>{{ $title }}</h1>
+    <div class="date">{{ $date }}</div>
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Total </th>
+                <th>Fecha Salida</th>
+                <th>Fecha Regreso</th>
+                <th>Hora de salida</th>
+                <th>Hora de regreso</th>
+                <th>Lugar</th>
+                <th>Autorizacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($info as $informacion)
+            <tr>
+                <td>{{ $informacion->NumePersonas }}</td>
+                <td>{{ $informacion->FechaSalida }}</td>
+                <td>{{ $informacion->FechaRegreso }}</td>
+                <td>{{ $informacion->HoraS }}</td>
+                <td>{{ $informacion->HoraR }}</td>
+                <td>{{ $informacion->Lugar }}</td>
+                <td>{{ $informacion->documento }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 </html>

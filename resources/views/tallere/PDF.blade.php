@@ -5,76 +5,93 @@
     <title>PDF</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .table-container {
+            max-width: 100%;
+            overflow-x: scroll;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            white-space: nowrap;
+            font-size: 8px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            background-color: #44c767;
+            color: #fff;
+            z-index: 2;
+        }
+
+        tr {
+            transition: background-color 0.2s ease;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .date {
+            text-align: right;
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <style>
-        .mini_tabla {
-            border: 1px solid #e2e2e2;
-            display: flex;
-        }
 
-        .tittle {
-            background: #f0ecec99;
-        }
-
-        .tittle,
-        .description {
-            width: 96.5%;
-            border: 2px solid #eeeeee;
-            margin: 5px 5px;
-            padding: 5px;
-        }
-    </style>
     <h1>{{ $title }}</h1>
-    <p>{{ $date }}</p>
-    @php($count = 1)
-    @foreach ($info as $item)
-        <div class="mini_tabla">
-            <h3>Gira #{{ $count }}</h3>
-            <div class="tittle">
-                <span>Contracion</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->Contratacion }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Nombre del Taller</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->NombreTaller }}</span>
-            </div>
-            <!---->
-            <!---->
-            <div class="tittle">
-                <span>Direccion</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->DireccionTaller }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Descripcion</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->DescripcionEsp }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Fecha de Vencimiento de Contrato</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->FechaVenTaller }}</span>
-            </div>
-            <!------>
-            
-          
-          
+    <div class="date">{{ $date }}</div>
 
-        </div>
-        @php($count++)
-    @endforeach
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                <th>N</th>
+                    <th>Contratación</th>
+                    <th>Nombre del Taller</th>
+                    <th>Dirección</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Vencimiento de Contrato</th>
+                </tr>
+            </thead>
+            <tbody>
+            @php($count=1)
+                @foreach ($info as $item)
+                <tr>
+                <td> {{$count}}</td>
+                    <td>{{ $item->Contratacion }}</td>
+                    <td>{{ $item->NombreTaller }}</td>
+                    <td>{{ $item->DireccionTaller }}</td>
+                    <td>{{ $item->DescripcionEsp }}</td>
+                    <td>{{ $item->FechaVenTaller }}</td>
+                </tr>
+               
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
 </body>
 

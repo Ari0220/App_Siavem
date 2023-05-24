@@ -14,7 +14,33 @@
 }
 
     </style>
+<script src="https://unpkg.com/autonumeric@4.2.0/dist/autoNumeric.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new AutoNumeric('#contratacion', {
+            currencySymbol: '₡',
+            digitGroupSeparator: ',',
+            decimalCharacter: '.',
+            decimalPlaces: 2,
+            minimumValue: '0.00'
+        });
+            new AutoNumeric('#valorAdqui', {
+            currencySymbol: '₡',
+            digitGroupSeparator: ',',
+            decimalCharacter: '.',
+            decimalPlaces: 2,
+            minimumValue: '0.00'
+        });
 
+        new AutoNumeric('#valorHacienda', {
+            currencySymbol: '₡',
+            digitGroupSeparator: ',',
+            decimalCharacter: '.',
+            decimalPlaces: 2,
+            minimumValue: '0.00'
+        });
+    });
+</script>
 <div class="box box-info padding-1">
     <div class="box-body">
         <!-- Primera parte del formulario -->
@@ -44,10 +70,10 @@
                     {!! $errors->first('estados_id', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
                 </div>
                 <div class="form-group">
-    {{ Form::label('placa') }}
-    {{ Form::text('placa', (strpos($unidade->placa, 'MS-') !== false) ? $unidade->placa : 'MS-', ['id' => 'placa', 'name' => 'placa', 'class' => 'form-control' . ($errors->has('placa') ? ' is-invalid' : ''), 'placeholder' => 'Placa', 'pattern' => '^MS-\d{4}$']) }}
-    {!! $errors->first('placa', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-</div>
+                  {{ Form::label('placa') }}
+                  {{ Form::text('placa', (strpos($unidade->placa, 'MS-') !== false) ? $unidade->placa : 'MS-', ['id' => 'placa', 'name' => 'placa', 'class' => 'form-control' . ($errors->has('placa') ? ' is-invalid' : ''), 'placeholder' => 'Placa', 'pattern' => '^MS-\d{4}$']) }}
+                  {!! $errors->first('placa', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+                </div>
 
                 <div class="form-group">
                     {{ Form::label('marca') }}
@@ -69,12 +95,15 @@
                 
                 <!-- Botón para pasar a la siguiente parte del formulario -->
                 <button type="button" id="next-button" class="btn btn-primary">Siguiente</button>
-            </div>
+            </div>                          
         </div>
         <!-- Segunda parte del formulario -->
         <div class="card" id="parte2" style="display: none;">
             <div class="card-body">
                 <!-- Campos de la segunda parte del formulario -->
+
+
+                
                 <div class="form-group">
                  {{ Form::label('estilo') }}
                  {{ Form::text('estilo', $unidade->estilo, ['class' => 'form-control' . ($errors->has('estilo') ? ' is-invalid' : ''), 'placeholder' => 'Estilo', 'pattern' => '^[A-Z][^0-9]+$']) }}
@@ -93,20 +122,20 @@
             {!! $errors->first('ayoFabricacion', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
         <div class="form-group">
-           {{ Form::label('contratación') }}
-           {{ Form::text('contratacion', $unidade->contratacion, ['class' => 'form-control' . ($errors->has('contratacion') ? ' is-invalid' : ''), 'placeholder' => 'Digite la cantidad de la contratación en colones', 'pattern' => '^(?:\d{1,3}(?:,\d{3})*(?:\.\d{2})?|\d+(?:\.\d{2})?)$']) }}
-           {!! $errors->first('contratacion', '<div class="invalid-feedback">Campo Obligatorio: debe ser una cantidad válida en colones (Ejemplo: 100,000.00)</div>') !!}
-        </div>
+    {{ Form::label('contratación') }}
+    {{ Form::text('contratacion', $unidade->contratacion, ['class' => 'form-control' . ($errors->has('contratacion') ? ' is-invalid' : ''), 'placeholder' => 'Digite la cantidad de la contratación en colones', 'pattern' => '^(?:\d{1,3}(?:,\d{3})*(?:\.\d{2})?|\d+(?:\.\d{2})?)$', 'id' => 'contratacion']) }}
+    {!! $errors->first('contratacion', '<div class="invalid-feedback">Campo Obligatorio: debe ser una cantidad válida en colones (Ejemplo: 100,000.00)</div>') !!}
+</div>
 
-        <div class="form-group">
+<div class="form-group">
     {{ Form::label('valor Adquisitivo') }}
-    {{ Form::text('valorAdqui', $unidade->valorAdqui, ['class' => 'form-control' . ($errors->has('valorAdqui') ? ' is-invalid' : ''), 'placeholder' => 'Digite con números la cantidad', 'pattern' => '^\d+(?:\.\d{2})?$']) }}
+    {{ Form::text('valorAdqui', $unidade->valorAdqui, ['class' => 'form-control' . ($errors->has('valorAdqui') ? ' is-invalid' : ''), 'placeholder' => 'Digite con números la cantidad', 'pattern' => '^\d+(?:\.\d{2})?$', 'id' => 'valorAdqui']) }}
     {!! $errors->first('valorAdqui', '<div class="invalid-feedback">Campo Obligatorio: Solo se permiten cantidades de dinero en colones</div>') !!}
 </div>
 
 <div class="form-group">
     {{ Form::label('valor Hacienda') }}
-    {{ Form::text('valorHacienda', $unidade->valorHacienda, ['class' => 'form-control' . ($errors->has('valorHacienda') ? ' is-invalid' : ''), 'placeholder' => 'Digite con número la cantidad', 'pattern' => '^\d+(?:\.\d{2})?$']) }}
+    {{ Form::text('valorHacienda', $unidade->valorHacienda, ['class' => 'form-control' . ($errors->has('valorHacienda') ? ' is-invalid' : ''), 'placeholder' => 'Digite con número la cantidad', 'pattern' => '^\d+(?:\.\d{2})?$', 'id' => 'valorHacienda']) }}
     {!! $errors->first('valorHacienda', '<div class="invalid-feedback">Campo Obligatorio: Solo se permiten cantidades de dinero en colones</div>') !!}
 </div>
 
@@ -118,9 +147,10 @@
 
       <div class="form-group">
     {{ Form::label('descripción') }}
-    {{ Form::text('descripcion', $unidade->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripción de la Unidad', 'pattern' => '^[A-Za-z\s]{1,20}$']) }}
+    {{ Form::text('descripcion', $unidade->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripción de la Unidad', 'pattern' => '^[A-Za-z0-9\s]{1,20}$']) }}
     {!! $errors->first('descripcion', '<div class="invalid-feedback">Campo Obligatorio: La descripción debe ser una cantidad corta.</div>') !!}
 </div>
+
 
             
             </div>
@@ -146,35 +176,13 @@
     const submitButton = document.getElementById("submit-button");
     const backButton = document.getElementById("back-button");
 
-  
+ 
 
     // Agrega un evento al botón "Siguiente"
     nextButton.addEventListener("click", function() {
         parte1.style.display = "none";
         parte2.style.display = "block";
         
-        // Validar campos de la primera parte del formulario
-    if (categoria.value === "") {
-        categoria.classList.add("is-invalid");
-    } else {
-        categoria.classList.remove("is-invalid");
-    }
-    if (traccion.value === "") {
-        traccion.classList.add("is-invalid");
-    } else {
-        traccion.classList.remove("is-invalid");
-    }
-    if (combustible.value === "") {
-        combustible.classList.add("is-invalid");
-    } else {
-        combustible.classList.remove("is-invalid");
-    }
-    if (estado.value === "") {
-        estado.classList.add("is-invalid");
-    } else {
-        estado.classList.remove("is-invalid");
-    }
-    
   });
     // Agrega un evento al botón "Atrás"
     backButton.addEventListener("click", function() {

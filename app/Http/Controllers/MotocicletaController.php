@@ -46,14 +46,14 @@ class MotocicletaController extends Controller
         $info = Motocicleta::where('idMotocicleta',$id)->get();
 
         $data = [
-            'title' => 'Inspecion de Motocicletas',
+            'title' => 'Inspecion de Motocicleta',
             'date' => date('m/d/Y'),
             'info' => $info
         ]; 
             
         $pdf3 = PDF::loadView('motocicleta.PDF2', $data);
      
-        return $pdf3->download('Listado de inspeccion.pdf');
+        return $pdf3->download('Inspeccion Motocicleta.pdf');
     }
     public function generarPDF(){
         $info = Motocicleta::get();

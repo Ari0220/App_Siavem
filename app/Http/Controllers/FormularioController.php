@@ -48,7 +48,7 @@ class FormularioController extends Controller
             'info' => $info
         ]; 
             
-        $pdf = PDF::loadView('formulario.PDF', $data);
+        $pdf = PDF::loadView('formulario.PDF2', $data);
      
         return $pdf->download('Solicitud de gira.pdf');
     }
@@ -59,7 +59,7 @@ class FormularioController extends Controller
             'date' => date('m/d/Y'),
             'info' => $info
         ];    
-        $pdf = PDF::loadView('formulario.PDF2', $data);
+        $pdf = PDF::loadView('formulario.PDF', $data);
         return $pdf->download('Listado de giras.pdf');
     }
 

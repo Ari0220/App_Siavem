@@ -5,6 +5,7 @@
     <title>PDF</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <style>
  .table-container {
   max-width: 100%;
@@ -56,9 +57,11 @@ h1 {
     margin-bottom: 10px;
 }
     </style>
+    <img src="images\Logounidad.png" alt="Logo">
 </head>
 
 <body>
+
 
 <h1>{{ $title }}</h1>
     <div class="date">{{ $date }}</div>
@@ -67,6 +70,7 @@ h1 {
     <table>
         <thead>
             <tr>
+           
                 <th>N</th>
                 <th>Categoría</th>
                 <th>Tracción</th>

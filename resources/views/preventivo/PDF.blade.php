@@ -5,86 +5,97 @@
     <title>PDF</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .table-container {
+            max-width: 100%;
+            overflow-x: scroll;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            white-space: nowrap;
+            font-size: 12px;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            background-color: #44c767;
+            color: #fff;
+            z-index: 2;
+        }
+
+        tr {
+            transition: background-color 0.2s ease;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .date {
+            text-align: right;
+            font-size: 14px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <style>
-        .mini_tabla {
-            border: 1px solid #e2e2e2;
-            display: flex;
-        }
 
-        .tittle {
-            background: #f0ecec99;
-        }
-
-        .tittle,
-        .description {
-            width: 96.5%;
-            border: 2px solid #eeeeee;
-            margin: 5px 5px;
-            padding: 5px;
-        }
-    </style>
     <h1>{{ $title }}</h1>
-    <p>{{ $date }}</p>
-    @php($count=1)
-    @foreach ($info as $item)
-        <div class="mini_tabla">
-            <h3>Preventivo  {{$count}}</h3>
-            <div class="tittle">
-                <span>Placa</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->unidade->placa }}</span>
-            </div>
-            <!---->
-            <div class="tittle">
-                <span>Taller</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->tallere->NombreTaller }}</span>
-            </div>
-            <!---->
+    <div class="date">{{ $date }}</div>
 
-              <div class="tittle">
-                <span>Fecha Mantenimiento</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->FechaMant }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Tipo de mantenimiento</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->tipoMante }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Horimetro</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->Horimetro }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Proximo Servicio</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->ProximoSer }}</span>
-            </div>
-              <!---->
-              <div class="tittle">
-                <span>Monto</span>
-            </div>
-            <div class="description">
-                <span>{{ $item->Monto }}</span>
-            </div>
-             
-        </div>
-        @php($count++)
-    @endforeach
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>N</th>
+                    <th>Placa</th>
+                    <th>Taller</th>
+                    <th>Fecha Mant.</th>
+                    <th>Tipo Mante.</th>
+                    <th>Horimetro</th>
+                    <th>Prox. Servicio</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php($count=1)
+                @foreach ($info as $item)
+                <tr>
+                    <td>{{ $count }}</td>
+                    <td>{{ $item->unidade->placa }}</td>
+                    <td>{{ $item->tallere->NombreTaller }}</td>
+                    <td>{{ $item->FechaMant }}</td>
+                    <td>{{ $item->tipoMante }}</td>
+                    <td>{{ $item->Horimetro }}</td>
+                    <td>{{ $item->ProximoSer }}</td>
+                    <td>{{ $item->Monto }}</td>
+                </tr>
+                @php($count++)
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
 </body>
 

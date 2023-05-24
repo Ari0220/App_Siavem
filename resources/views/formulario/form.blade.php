@@ -47,12 +47,13 @@
             {!! $errors->first('emple_id', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
 
-
         <div class="form-group">
     {{ Form::label('Destino') }}
-    {{ Form::text('Lugar', $formulario->Lugar, ['pattern' => '[A-Za-z,]+', 'class' => 'form-control' . ($errors->has('Lugar') ? ' is-invalid' : ''), 'placeholder' => 'Escriba el provincia, canton y distrito']) }}
+    {{ Form::text('Lugar', $formulario->Lugar, ['pattern' => '^[A-Za-z, ]+$', 'class' => 'form-control' . ($errors->has('Lugar') ? ' is-invalid' : ''), 'placeholder' => 'Escriba la provincia, cantón y distrito']) }}
     {!! $errors->first('Lugar', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
+
+
 
         <div class="form-group">
             {{ Form::label('Vehiculo') }}
