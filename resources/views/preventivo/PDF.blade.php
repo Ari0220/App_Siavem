@@ -73,7 +73,7 @@
                     <th>Taller</th>
                     <th>Fecha Mant.</th>
                     <th>Tipo Mante.</th>
-                    <th>Horimetro</th>
+                    <th>Kilometraje Actual</th>
                     <th>Prox. Servicio</th>
                     <th>Monto</th>
                 </tr>

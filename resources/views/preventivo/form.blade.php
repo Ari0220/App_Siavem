@@ -56,14 +56,15 @@
        </div>
 
        <div class="form-group">
-         {{ Form::label('Proximo Servicio (Kilometraje)') }}
-         {{ Form::text('ProximoSer', $preventivo->ProximoSer, [
-         'class' => 'form-control' . ($errors->has('ProximoSer') ? ' is-invalid' : ''),
-         'placeholder' => 'Digite el próximo servicio',
-         'pattern' => '^[0-9]+$' // Expresión regular para permitir solo números
-         ]) }}
-         {!! $errors->first('ProximoSer', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-      </div>
+    {{ Form::label('Proximo Servicio (Kilometraje)') }}
+    {{ Form::text('ProximoSer', $preventivo->ProximoSer, [
+        'class' => 'form-control' . ($errors->has('ProximoSer') ? ' is-invalid' : ''),
+        'placeholder' => 'Digite el próximo servicio',
+        'pattern' => '^[0-9]+$' // Expresión regular para permitir solo números
+    ]) }}
+    {!! $errors->first('ProximoSer', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+
       
       <div class="form-group">
     {{ Form::label('Monto') }}

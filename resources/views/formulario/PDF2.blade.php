@@ -69,10 +69,12 @@
                             <label>Departamento:</label>
                             <span>{{ $item->departamento->nombreDepa }}</span>
                         </div>
+                       
                         <div class="campo">
-                            <label>Responsable de gira:</label>
-                            <span>{{ $item->empleado->Cedula }}</span>
+                          <label>Responsable gira:</label>
+                          <span>{{ $item->empleado->Cedula }}</span>
                         </div>
+
                         <div class="campo">
                             <label>Objetivo:</label>
                             <span>{{ $item->Objetivo }}</span>
@@ -85,7 +87,8 @@
                             <label>Destino:</label>
                             <span>{{ $item->Lugar }}</span>
                         </div>
-                        
+
+                    </div>
                     <div class="columna">
                         <div class="campo">
                             <label>Fecha de Salida:</label>
