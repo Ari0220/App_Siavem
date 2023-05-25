@@ -49,26 +49,26 @@ class ChequeoController extends Controller
         $info = Chequeo::where('idchequeos',$id)->get();
 
         $data = [
-            'title' => 'Inspecion de Automoviles y Busetas',
+            'title' => 'Inspección de Automoviles y Busetas',
             'date' => date('m/d/Y'),
             'info' => $info
         ]; 
             
         $pdf2 = PDF::loadView('chequeo.PDF2', $data);
      
-        return $pdf2->download('Inspeccion Automovil .pdf');
+        return $pdf2->download('Inspección Automovil .pdf');
     }
 
 
     public function generarPDF(){
         $info = Chequeo::get();
         $data = [
-            'title' => 'Listado de chequeos',
+            'title' => 'Listado de Inspección Automoviles y Busetas',
             'date' => date('m/d/Y'),
             'info' => $info
         ];    
         $pdf = PDF::loadView('chequeo.PDF', $data);
-        return $pdf->download('Listado de chequeos.pdf');
+        return $pdf->download('Listado de Inspección Automoviles y Busetas.pdf');
     }
     public function generarEXCEL(){
         ob_end_clean();
@@ -105,7 +105,7 @@ class ChequeoController extends Controller
     
     
        return redirect()->route('chequeos.index')
-            ->with('success', 'Chequeo creado correctamente.');
+            ->with('success', 'Inspección Automoviles y Busetas creado correctamente.');
       
 
 
@@ -176,7 +176,7 @@ class ChequeoController extends Controller
         }
         $chequeo->update( $chequeos);
         return redirect()->route('chequeos.index')
-            ->with('success', 'Chequeo editado correctamente.');
+            ->with('success', 'Inspección Automoviles y Busetas editado correctamente.');
     }
 
     /**
@@ -189,6 +189,6 @@ class ChequeoController extends Controller
         $chequeo = Chequeo::find($id)->delete();
 
         return redirect()->route('chequeos.index')
-            ->with('success', 'Chequeo eliminado correctamente.');
+            ->with('success', 'Inspección Automoviles y Busetas eliminado correctamente.');
     }
 }

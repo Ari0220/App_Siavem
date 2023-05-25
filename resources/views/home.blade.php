@@ -9,21 +9,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../resources/css/Home.css">
 <title>Home</title>
-<br>
 <style> 
-  Body div .main-home h1{
+  Body div .main-home h1 {
     text-align: center;
     font-family: 'EB Garamond', serif;
-}
-body div p{
-  font-family: 'EB Garamond', serif;
-  font-size: 1.2rem;
-}
-body div .descrip{
-  font-family: 'EB Garamond', serif;
-  font-size: 1.5rem;
-  text-align: center;
-}
+  }
+  
+  body div .descrip {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    text-align: center;
+  }
 --------------------------------------
 article {
   --img-scale: 1.001;
@@ -38,7 +34,9 @@ article {
   transition: all 0.4s ease-in-out;
   overflow: hidden;
 }
-
+.container h1:last-child {
+  margin-bottom: 0;
+}
 article a::after {
   position: absolute;
   inset-block: 0;
@@ -115,17 +113,7 @@ Generic layout (demo looks)
 *::after {
   box-sizing: border-box;
 }
-/*
-body {
-  margin: 0;
-  padding: 48px 0;
-  font-family: "Figtree", sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
- 
-  min-height: 100vh;
-}
-*/
+
 .articles {
   display: grid;
   max-width: 1200px;
@@ -185,34 +173,91 @@ body {
   white-space: nowrap; 
   width: 1px;
 }
+.shield-figure {
+  width: 200px; /* Ajusta el ancho del contenedor según tus necesidades */
+  height: 200px; /* Ajusta la altura del contenedor según tus necesidades */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
+}
 
+.shield-figure img {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+}
+
+
+.logo-figure {
+  width: 200px; /* Ajusta el ancho del contenedor según tus necesidades */
+  height: 200px; /* Ajusta la altura del contenedor según tus necesidades */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
+}
+
+.logo-figure img {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+}
+
+.logo-figure {
+  width: 200px; /* Ajusta el ancho del contenedor según tus necesidades */
+  height: 200px; /* Ajusta la altura del contenedor según tus necesidades */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
+}
+
+.logo-figure img {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+}
+
+
+.main-home {
+  background-image: url('images/Fondo3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100vh; /* Ajusta la altura al 100% del viewport */
+  color: white; /* Cambiar el color del texto a blanco */
+  margin: 0; /* Eliminar el margen */
+  /* Otras propiedades de estilo que desees agregar */
+}
+
+.container {
+  text-align: center;
+  margin-bottom: 20px; /* Margen inferior para separar el texto del borde */
+}
+
+.encargados {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.encargado-figure {
+  width: 150px; /* Ajusta el ancho del contenedor según tus necesidades */
+  height: 150px; /* Ajusta la altura del contenedor según tus necesidades */
+  margin: 0 10px; /* Ajusta los márgenes laterales según tus necesidades */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
+}
+
+.encargado-figure img {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+}
 
 </style>
 </head> 
-
-<br>
-
 <body>
-<br>
-<br>
-<br>
-  <div class="main-home">
-<h1 class="container"
-class="text-center" > <strong>BIENVENIDOS A LA UNIDAD DE TRANSPORTE</strong></h1>
-<br>
-<br>
-<br>
-<div class="descrip">
-<p>
-El sistema SIAVEM es un aplicativo web que se creará con el fin de tener
-un mejor control y gestión en el área de transporte de la municipalidad de 
-Santa Cruz. Este sistema tendrá en cuenta todo el manejo que se tiene con la
-flota vehicular de la entidad encargada, proporcionará una mayor agilidad para 
-entradas y salidas de los vehículos, al igual que su mantenimiento mecánico, 
-control de personal que estará encargado de cada unidad, el cual deberá hacerse 
-responsable de la misma y en caso de averías el sistema tendrá acceso a una 
-opción de reportes dirigidos a la parte administrativa del área de transporte.
-</p>
+<div class="main-home">
+  <div class="container">
+    <h1><strong>BIENVENIDOS A LA UNIDAD DE TRANSPORTE</strong></h1>
+  </div>
+  <div class="descrip">
+  </div>
 </div>
 <br>
 <br>
@@ -223,51 +268,43 @@ class="text-center" > <strong>Encargados</strong></h1>
 <br>
 </section>
 <section class="encargados">
-  
- <article>
+  <article>
     <div class="article-wrapper">
-      <figure>
+      <figure class="encargado-figure">
         <img src="images/USUARIO2.png" alt="" />
       </figure>
       <div class="article-body">
         <h2>Alcaldía Santa Cruz</h2>
-        <p>Mtr.Jorge Alfaro Orias
-        </p>
-       
+        <p>Mtr. Jorge Alfaro Orias</p>
       </div>
     </div>
   </article>
 
   <article>
     <div class="article-wrapper">
-      <figure>
+      <figure class="encargado-figure">
         <img src="images/USUARIO1.png" alt="" />
       </figure>
       <div class="article-body">
         <h2>Unidad de Transporte</h2>
-        <p>Lic.Amalia Gutierrez
-        </p>
-        
+        <p>Lic. Amalia Gutierrez</p>
       </div>
     </div>
   </article>
 
   <article>
     <div class="article-wrapper">
-      <figure>
+      <figure class="encargado-figure">
         <img src="images/USUARIO2.png" alt="" />
       </figure>
       <div class="article-body">
         <h2>Unidad de informática</h2>
-        <p>Mtr.Manrique Solorzano
-        </p>
-       
+        <p>Mtr. Manrique Solorzano</p>
       </div>
     </div>
   </article>
-
- 
 </section>
+
 <br>
 <br>
 <br>
@@ -282,42 +319,42 @@ class="text-center" > <strong>Entidades Encargadas</strong></h1>
 </section>
 <section class="encargados">
 
-  <article>
-    <div class="article-wrapper">
-      <figure>
-        <img src="images/Sin título-62.jpg" alt="" />
-      </figure>
-      <div class="article-body">
-        <h2>Universidad Nacional</h2>
-       
-      </div>
+<article>
+  <div class="article-wrapper">
+    <figure class="logo-figure">
+      <img src="images/Sin título-62.jpg" alt="" />
+    </figure>
+    <div class="article-body">
+      <h2>Universidad Nacional</h2>
     </div>
-  </article>
+  </div>
+</article>
 
- <article>
-    <div class="article-wrapper">
-      <figure>
-        <img src="images/aa.png" alt="" />
-      </figure>
-      <div class="article-body">
-        <h2>Sede regional Chorotega</h2>
-       
-      </div>
-    </div>
-  </article>
 
   <article>
-    <div class="article-wrapper">
-      <figure>
-        <img src="images/Sin título-51.jpg" alt="" />
-      </figure>
-      <div class="article-body">
-        <h2>Municipalidad de Santa Cruz</h2>
-        
-       
-      </div>
+  <div class="article-wrapper">
+    <figure class="logo-figure">
+      <img src="images/aa.png" alt="" />
+    </figure>
+    <div class="article-body">
+      <h2>Sede regional Chorotega</h2>
     </div>
-  </article>
+  </div>
+</article>
+
+
+  <article>
+  <div class="article-wrapper">
+    <figure class="shield-figure">
+      <img src="images/Sin título-51.jpg" alt="" />
+    </figure>
+    <div class="article-body">
+      <h2>Municipalidad de Santa Cruz</h2>
+    </div>
+  </div>
+</article>
+
+
 
  
 </section>

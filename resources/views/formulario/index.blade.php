@@ -3,6 +3,7 @@
 @section('template_title')
     Formulario
 @endsection
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-******************" crossorigin="anonymous" />
 
 @section('content')
 <style>
@@ -141,13 +142,78 @@
     outline-offset: 0;
   }
 }
+ .btn2{
+width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color:  rgb(78, 186, 200);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164)
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+  color: white;
+}
+.svgIcon {
+  width: 12px;
+  transition-duration: .3s;
+}
+
+.btn3{
+    width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color:  rgb(234, 195, 18);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164)
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+  color: white;
+}
+.svgIcon {
+  width: 12px;
+  transition-duration: .3s;
+}
+
+
+.button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color:rgb(211, 41, 41);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164)
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+  color: white;
+}
+.svgIcon {
+  width: 12px;
+  transition-duration: .3s;
 }
 
 </style>
     <div class="container-fluid">
         <div class="row">
             @if (Auth::user()->rol_id === 1 || Auth::user()->rol_id === 2 || Auth::user()->rol_id === 3)
-            <div class="col-sm-12">
+            <div class="col-sm-10">
                 <div class="card">
                     <br>.
 
@@ -188,7 +254,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                     
+                     
 										<th>Codigo Solicitud</th>
 										<th>Vehiculo</th>
 										<th>Departamento</th>
@@ -204,6 +270,7 @@
                                         <th>Estado</th>
                                         <th>Placa</th>
                                         <th>Acciones</th>
+
 
                                         <th></th>
                                     </tr>
@@ -237,15 +304,17 @@
                                             <td>{{ $formulario->placa }}</td>
                                             <td>
                                                 <form action="{{ route('formularios.destroy',$formulario->idFormularios) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('formularios.show',$formulario->idFormularios) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
-                                                    <a class="btn btn-sm btn-warning" href="{{ route('formularios.edit',$formulario->idFormularios) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    <a class="btn2" href="{{ route('formularios.show',$formulario->idFormularios) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <br>
+                                                    <a class="btn3" href="{{ route('formularios.edit',$formulario->idFormularios) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                    <br>
                                                     @if($formulario->estado == 1)
-                                                    <a class="btn btn-sm btn-info" href="{{ route('pdf',$formulario->idFormularios) }}"><i class="fa fa-fw fa-edit"></i> PDF</a>
+                                                    <a class="btn btn-sm btn-info" href="{{ route('pdf',$formulario->idFormularios) }}"><i class="fa fa-print"></i></a>
                                                     @endif
-        
+        <br>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <button type="submit" class="button"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

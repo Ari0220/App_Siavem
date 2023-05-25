@@ -38,83 +38,6 @@
   position: relative; /* Agregado */
 }
 
-.card:hover {
-  border: 1px solid black;
-  transform: scale(1.05);
-}
-
-.card:active {
-  transform: scale(0.95) rotateZ(1.7deg);
-}
-
-.float-right {
-  position: absolute;
-  top: 2px;
-  right: 0;
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 600px) {
-  .card {
-    width: 90vw;
-    height: auto;
-  }
-  .btno {
- --color: #00A97F;
- --color2: rgb(10, 25, 30);
- padding: 0.8em 1.75em;
- background-color: transparent;
- border-radius: 6px;
- border: .3px solid var(--color);
- transition: .5s;
- position: relative;
- overflow: hidden;
- cursor: pointer;
- z-index: 1;
- font-weight: 300;
- font-size: 17px;
- font-family: 'EB Garamond', serif;
- text-transform: uppercase;
- color: var(--color);
-}
-
-.btno::after, .btno::before {
- content: '';
- display: block;
- height: 100%;
- width: 100%;
- transform: skew(90deg) translate(-50%, -50%);
- position: absolute;
- inset: 50%;
- left: 25%;
- z-index: -1;
- transition: .5s ease-out;
- background-color: var(--color);
-}
-
-.btno::before {
- top: -50%;
- left: -25%;
- transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btno:hover::before {
- transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btno:hover::after {
- transform: skew(45deg) translate(-50%, -50%);
-}
-
-.btno:hover {
- color: var(--color2);
-}
-
-.btno:active {
- filter: brightness(.7);
- transform: scale(.98);
-}
-}
 .btn-conteiner {
   display: flex;
   justify-content: center;
@@ -220,6 +143,29 @@
     outline-offset: 0;
   }
 }
+
+.button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color:rgb(211, 41, 41);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164)
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+  color: white;
+}
+.svgIcon {
+  width: 12px;
+  transition-duration: .3s;
+}
+
 </style>
     <div class="container-fluid">
         <div class="row">
@@ -256,11 +202,10 @@
 
                                             <td>
                                                 <form action="{{ route('roles.destroy',$role->idRol) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('roles.show',$role->idRol) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                    <a class="btn btn-sm btn-warning" href="{{ route('roles.edit',$role->idRol) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                   
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                    <button type="submit" class="button"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

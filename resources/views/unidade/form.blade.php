@@ -25,12 +25,12 @@
             minimumValue: '0.00'
         });
             new AutoNumeric('#valorAdqui', {
-            currencySymbol: '₡',
-            digitGroupSeparator: ',',
-            decimalCharacter: '.',
-            decimalPlaces: 2,
-            minimumValue: '0.00'
-        });
+    currencySymbol: '₡',
+    digitGroupSeparator: ',',
+    decimalCharacter: '.',
+    decimalPlaces: 3,
+    minimumValue: '0.00'
+});
 
         new AutoNumeric('#valorHacienda', {
             currencySymbol: '₡',
@@ -82,7 +82,7 @@
                 </div>
                 <div class="form-group">
                 {{ Form::label('modelo', 'Modelo') }}
-                {{ Form::text('modelo', $unidade->modelo, ['class' => 'form-control' . ($errors->has('modelo') ? ' is-invalid' : ''), 'placeholder' => 'Modelo', 'pattern' => '^[A-Z][a-zA-Z\s]*$', 'title' => 'Ingrese una sola palabra con la primera letra mayúscula', 'oninput' => 'validateFormat(this, /^[A-Z][a-zA-Z\s]*$/, "El modelo debe tener una sola palabra con la primera letra mayúscula.")']) }}
+                {{ Form::text('modelo', $unidade->modelo, ['class' => 'form-control' . ($errors->has('modelo') ? ' is-invalid' : ''), 'placeholder' => 'Modelo', 'pattern' => '^[A-Z][a-zA-Z\s]$', 'title' => 'Ingrese una sola palabra con la primera letra mayúscula', 'oninput' => 'validateFormat(this, /^[A-Z][a-zA-Z\s]$/, "El modelo debe tener una sola palabra con la primera letra mayúscula.")']) }}
                <div id="modelo-error" class="invalid-feedback" style="display: none;"></div>
                </div>
               
@@ -123,21 +123,26 @@
         </div>
         <div class="form-group">
     {{ Form::label('contratación') }}
-    {{ Form::text('contratacion', $unidade->contratacion, ['class' => 'form-control' . ($errors->has('contratacion') ? ' is-invalid' : ''), 'placeholder' => 'Digite la cantidad de la contratación en colones', 'pattern' => '^(?:\d{1,3}(?:,\d{3})*(?:\.\d{2})?|\d+(?:\.\d{2})?)$', 'id' => 'contratacion']) }}
-    {!! $errors->first('contratacion', '<div class="invalid-feedback">Campo Obligatorio: debe ser una cantidad válida en colones (Ejemplo: 100,000.00)</div>') !!}
+    {{ Form::text('contratacion', $unidade->contratacion, ['class' => 'form-control' . ($errors->has('contratacion') ? ' is-invalid' : ''), 'placeholder' => 'Digite la cantidad de la contratación en colones', 'pattern' => '^₡\d{1,3}(?:,\d{3})(?:,\d{3})(?:,\d{3})*(?:\.\d{2})?$', 'id' => 'contratacion']) }}
+    {!! $errors->first('contratacion', '<div class="invalid-feedback">Campo Obligatorio: debe ser una cantidad válida en colones (Ejemplo: ₡25,000,000.00)</div>') !!}
 </div>
+
+
 
 <div class="form-group">
     {{ Form::label('valor Adquisitivo') }}
-    {{ Form::text('valorAdqui', $unidade->valorAdqui, ['class' => 'form-control' . ($errors->has('valorAdqui') ? ' is-invalid' : ''), 'placeholder' => 'Digite con números la cantidad', 'pattern' => '^\d+(?:\.\d{2})?$', 'id' => 'valorAdqui']) }}
+    {{ Form::text('valorAdqui', $unidade->valorAdqui, ['class' => 'form-control' . ($errors->has('valorAdqui') ? ' is-invalid' : ''), 'placeholder' => 'Digite la cantidad en colones', 'pattern' => '^₡\d{1,3}(?:,\d{3})*(?:\.\d+)?$', 'id' => 'valorAdqui']) }}
     {!! $errors->first('valorAdqui', '<div class="invalid-feedback">Campo Obligatorio: Solo se permiten cantidades de dinero en colones</div>') !!}
 </div>
 
+
+
 <div class="form-group">
     {{ Form::label('valor Hacienda') }}
-    {{ Form::text('valorHacienda', $unidade->valorHacienda, ['class' => 'form-control' . ($errors->has('valorHacienda') ? ' is-invalid' : ''), 'placeholder' => 'Digite con número la cantidad', 'pattern' => '^\d+(?:\.\d{2})?$', 'id' => 'valorHacienda']) }}
+    {{ Form::text('valorHacienda', $unidade->valorHacienda, ['class' => 'form-control' . ($errors->has('valorHacienda') ? ' is-invalid' : ''), 'placeholder' => 'Digite con número la cantidad', 'pattern' => '^\₡\d{1,3}(?:,\d{3})(?:,\d{3})(?:,\d{3})*(?:\.\d{2})?$', 'id' => 'valorHacienda']) }}
     {!! $errors->first('valorHacienda', '<div class="invalid-feedback">Campo Obligatorio: Solo se permiten cantidades de dinero en colones</div>') !!}
 </div>
+
 
         <div class="form-group">
     {{ Form::label('RTV') }}
@@ -192,13 +197,3 @@
     });
 
 </script>
-
-
-
-
-
-
-
-
-
-

@@ -75,8 +75,8 @@
 
         </br>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Enviar</button>
-        <a class="btn btn-danger" href="{{ route('correctivos.index') }}"> Atrás</a>
+            <a class="btn btn-danger" href="{{ route('correctivos.index') }}"> Atrás</a>
+    <button type="submit" class="btn btn-primary">Enviar</button>
 
     </div>
 </div>

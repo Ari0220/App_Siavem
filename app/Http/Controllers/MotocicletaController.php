@@ -46,24 +46,24 @@ class MotocicletaController extends Controller
         $info = Motocicleta::where('idMotocicleta',$id)->get();
 
         $data = [
-            'title' => 'Inspecion de Motocicleta',
+            'title' => 'Inspección  de Motocicleta',
             'date' => date('m/d/Y'),
             'info' => $info
         ]; 
             
         $pdf3 = PDF::loadView('motocicleta.PDF2', $data);
      
-        return $pdf3->download('Inspeccion Motocicleta.pdf');
+        return $pdf3->download('Inspección  Motocicleta.pdf');
     }
     public function generarPDF(){
         $info = Motocicleta::get();
         $data = [
-            'title' => 'Listado de motocicletas',
+            'title' => 'Listado de Inspección  motocicleta',
             'date' => date('m/d/Y'),
             'info' => $info
         ];    
         $pdf = PDF::loadView('motocicleta.PDF', $data);
-        return $pdf->download('Listado de motocicleta.pdf');
+        return $pdf->download('Listado de Inspección  motocicleta.pdf');
     }
     public function generarEXCEL(){
         ob_end_clean();
@@ -100,7 +100,7 @@ class MotocicletaController extends Controller
 
 
         return redirect()->route('motocicletas.index')
-            ->with('success', 'Inspeccion Motocicleta creado correctamente.');
+            ->with('success', ' Inspección  motocicleta creado correctamente.');
     }
 
     /**
@@ -168,7 +168,7 @@ class MotocicletaController extends Controller
 
         $motocicleta->update($motocicletas);
         return redirect()->route('motocicletas.index')
-            ->with('success', 'Motocicleta updated successfully');
+            ->with('success', 'Inspección Motocicleta editado correctamente');
     }
 
     /**
@@ -195,6 +195,6 @@ class MotocicletaController extends Controller
             $motocicletas = Motocicleta::find($id)->delete();
 
             return redirect()->route('motocicletas.index')
-            ->with('success', 'Inspeccion Motocicleta eliminado correctamente.');
+            ->with('success', 'Inspección Motocicleta eliminado correctamente.');
     }
 }

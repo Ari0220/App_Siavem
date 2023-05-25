@@ -23,7 +23,7 @@
   height: auto;
   background: hsl(105, 9%, 91%);
   border: 1px solid white;
-  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  box-shadow: 17px 17px 51px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(6px);
   border-radius: 17px;
   text-align: center;
@@ -38,83 +38,6 @@
   position: relative; /* Agregado */
 }
 
-.card:hover {
-  border: 1px solid black;
-  transform: scale(1.05);
-}
-
-.card:active {
-  transform: scale(0.95) rotateZ(1.7deg);
-}
-
-.float-right {
-  position: absolute;
-  top: 2px;
-  right: 0;
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 600px) {
-  .card {
-    width: 90vw;
-    height: auto;
-  }
-  .btno {
- --color: #00A97F;
- --color2: rgb(10, 25, 30);
- padding: 0.8em 1.75em;
- background-color: transparent;
- border-radius: 6px;
- border: .3px solid var(--color);
- transition: .5s;
- position: relative;
- overflow: hidden;
- cursor: pointer;
- z-index: 1;
- font-weight: 300;
- font-size: 17px;
- font-family: 'EB Garamond', serif;
- text-transform: uppercase;
- color: var(--color);
-}
-
-.btno::after, .btno::before {
- content: '';
- display: block;
- height: 100%;
- width: 100%;
- transform: skew(90deg) translate(-50%, -50%);
- position: absolute;
- inset: 50%;
- left: 25%;
- z-index: -1;
- transition: .5s ease-out;
- background-color: var(--color);
-}
-
-.btno::before {
- top: -50%;
- left: -25%;
- transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btno:hover::before {
- transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btno:hover::after {
- transform: skew(45deg) translate(-50%, -50%);
-}
-
-.btno:hover {
- color: var(--color2);
-}
-
-.btno:active {
- filter: brightness(.7);
- transform: scale(.98);
-}
-}
 .btn-conteiner {
   display: flex;
   justify-content: center;
@@ -356,7 +279,7 @@
     <div class="container-fluid">
         <div class="row">
             @if (Auth::user()->rol_id === 1 || Auth::user()->rol_id === 2)
-            <div class="col-sm-12">
+            <div class="col-sm-8">
                 <div class="card">
                   <br>
                 <div class="btn-conteiner">
@@ -397,29 +320,24 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                       
+                 
 										<th>Placa</th>
 										<th>Fecha</th>
 										<th>Kilometraje</th>
 										<th>Combustible</th>
-										<th>Luz baja</th>
-										<th>Luz alta</th>
-										<th>Luz marcha</th>
-										<th>Pito</th>
+										
 										<th>Bateria</th>
-										<th>Nivel refrigeracion</th>
+										
 										<th>Nivel aceite</th>
-										<th>Asientos</th>
+								
 										<th>Permisos circulacion</th>
-										<th>Rtv</th>
+										<th>RTV </th>
 										<th>Titulo propiedad</th>
-										<th>Llanta delantera</th>
-										<th>Llanta trasera</th>
-										<th>Espejo retrovisor Derecho</th>
-										<th>Espejo retrovisor Izquierdo</th>
                                         <th>Salida Unidad</th>
                                         <th>Entrega Unidad</th>
                                         <th>Acciones</th>
+
+
 
                                         <th></th>
                                     </tr>
@@ -428,25 +346,17 @@
                                     @foreach ($motocicletas as $motocicleta)
                                         <tr>
                                           
-											<td>{{ $motocicleta->unidade->placa }}</td>
+							
+                                        <td>{{ $motocicleta->unidade->placa }}</td>
 											<td>{{ $motocicleta->FechaChequeoM }}</td>
 											<td>{{ $motocicleta->Kilometraje }}</td>
-											<td>{{ $motocicleta->Combustible }}</td>
-											<td>{{ $motocicleta->LuzBaja }}</td>
-											<td>{{ $motocicleta->LuzAlta }}</td>
-											<td>{{ $motocicleta->LuzMarcha }}</td>
-											<td>{{ $motocicleta->Pito }}</td>
-											<td>{{ $motocicleta->Bateria }}</td>
-											<td>{{ $motocicleta->NivelRefrigeracion }}</td>
+											<td>{{ $motocicleta->Combustible }}</td>	
+											<td>{{ $motocicleta->Bateria }}</td>	
 											<td>{{ $motocicleta->NivelAceite }}</td>
-											<td>{{ $motocicleta->Asientos }}</td>
 											<td>{{ $motocicleta->PermisosCirculacion }}</td>
 											<td>{{ $motocicleta->RTV }}</td>
 											<td>{{ $motocicleta->TituloPropiedad }}</td>
-											<td>{{ $motocicleta->LlantaDelantera }}</td>
-											<td>{{ $motocicleta->LlantaTrasera }}</td>
-											<td>{{ $motocicleta->EspejoRetrovisorD }}</td>
-											<td>{{ $motocicleta->EspejoRetrovisori }}</td>
+
                                             <td>
                                             <a class="Ver" href="/ChequeoPDF/{{ $motocicleta->documentoEnvio }}" class="btn btn-sm btn-info" target="_blank">  <i class="fas fa-eye"></i></a> 
                                             <br>

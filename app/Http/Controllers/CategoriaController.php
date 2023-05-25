@@ -53,7 +53,7 @@ class CategoriaController extends Controller
         $categoria = Categoria::create($request->all());
 
         return redirect()->route('categorias.index')
-            ->with('success', 'Categoria creada correctamente.');
+            ->with('success', 'Categoría creada correctamente.');
     }
 
     /**
@@ -96,7 +96,7 @@ class CategoriaController extends Controller
         $categoria->update($request->all());
 
         return redirect()->route('categorias.index')
-            ->with('success', 'Categoria editada correctamente');
+            ->with('success', 'Categoría editada correctamente');
     }
 
     /**
@@ -111,11 +111,11 @@ class CategoriaController extends Controller
         if($unidade->isEmpty()){
             $categoria = Categoria::find($id)->delete();
         return redirect()->route('categorias.index')
-            ->with('success', 'Categoria eliminada correctamente');
+            ->with('success', 'Categoría eliminada correctamente');
 
         } else{
             return redirect()->route('categorias.index')
-            ->with('success', 'Categoria se encuentra en una unidad');
+            ->with('success', 'Categoría se encuentra en una unidad');
 
         }
 

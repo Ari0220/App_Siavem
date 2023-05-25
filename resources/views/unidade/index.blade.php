@@ -205,47 +205,49 @@
 
 
 
-.btn1 {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgb(234, 195, 18);
-  border: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-  cursor: pointer;
-  transition-duration: 0.3s;
-  overflow: hidden;
-  position: relative;
-  color: white; /* Cambio a color negro */
-}
 .btn2 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgb(78, 69, 180);
+  background-color:  rgb(78, 186, 200);
   border: none;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+ box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164)
   cursor: pointer;
-  transition-duration: 0.3s;
+  transition-duration: .3s;
   overflow: hidden;
   position: relative;
-  color: white; /* Cambio a color negro */
+  color: white;
 }
-
 .svgIcon {
   width: 12px;
-  transition-duration: 0.3s;
-  fill: white;
+  transition-duration: .3s;
 }
 
+.btn3{
+    width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color:  rgb(234, 195, 18);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164)
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+  color: white;
+}
+.svgIcon {
+  width: 12px;
+  transition-duration: .3s;
+}
 
 
 .button {
@@ -263,16 +265,12 @@
   transition-duration: .3s;
   overflow: hidden;
   position: relative;
+  color: white;
 }
 .svgIcon {
   width: 12px;
   transition-duration: .3s;
 }
-
-.svgIcon path {
-  fill: white;
-}
-
 </style>
 
 <div class="container-fluid">
@@ -364,11 +362,13 @@
 
                                             <td>
                                                 <form action="{{ route('unidades.destroy',$unidade->idUnidad) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('unidades.show',$unidade->idUnidad) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
-                                                    <a class="btn btn-sm btn-warning" href="{{ route('unidades.edit',$unidade->idUnidad) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    <a class="btn2 " href="{{ route('unidades.show',$unidade->idUnidad) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <br>
+                                                    <a class="btn3" href="{{ route('unidades.edit',$unidade->idUnidad) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                    <br>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <button type="submit" class="button"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

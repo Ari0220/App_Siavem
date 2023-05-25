@@ -32,7 +32,7 @@ class TallereController extends Controller
     public function generarPDF(){
         $info = Tallere::get();
         $data = [
-            'title' => 'Listado de talleres',
+            'title' => 'Listado de Talleres',
             'date' => date('m/d/Y'),
             'info' => $info
         ];    

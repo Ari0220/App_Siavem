@@ -31,12 +31,12 @@ class PreventivoController extends Controller
     public function generarPDF(){
         $info = Preventivo::get();
         $data = [
-            'title' => 'Listado de Preventivo',
+            'title' => 'Listado de Mantenimiento Preventivo',
             'date' => date('m/d/Y'),
             'info' => $info
         ];    
         $pdf = PDF::loadView('preventivo.PDF', $data);
-        return $pdf->download('Listado de Preventivo.pdf');
+        return $pdf->download('Listado de Mantenimiento Preventivo.pdf');
     }
     public function generarEXCEL(){
         ob_end_clean();
@@ -70,7 +70,7 @@ class PreventivoController extends Controller
         $preventivo = Preventivo::create($request->all());
 
         return redirect()->route('preventivos.index')
-            ->with('success', 'Preventivo creado correctamente.');
+            ->with('success', 'Mantenimiento Preventivo creado correctamente.');
     }
 
     /**
@@ -114,7 +114,7 @@ class PreventivoController extends Controller
         $preventivo->update($request->all());
 
         return redirect()->route('preventivos.index')
-            ->with('success', 'Preventivo editado correctamente');
+            ->with('success', 'Mantenimiento Preventivo editado correctamente');
     }
 
     /**
@@ -127,6 +127,6 @@ class PreventivoController extends Controller
         $preventivo = Preventivo::find($id)->delete();
 
         return redirect()->route('preventivos.index')
-            ->with('success', 'Preventivo eliminado correctamente');
+            ->with('success', 'Mantenimiento Preventivo eliminado correctamente');
     }
 }

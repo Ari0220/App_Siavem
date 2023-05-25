@@ -38,83 +38,6 @@
   position: relative; /* Agregado */
 }
 
-.card:hover {
-  border: 1px solid black;
-  transform: scale(1.05);
-}
-
-.card:active {
-  transform: scale(0.95) rotateZ(1.7deg);
-}
-
-.float-right {
-  position: absolute;
-  top: 2px;
-  right: 0;
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 600px) {
-  .card {
-    width: 90vw;
-    height: auto;
-  }
-  .btno {
- --color: #00A97F;
- --color2: rgb(10, 25, 30);
- padding: 0.8em 1.75em;
- background-color: transparent;
- border-radius: 6px;
- border: .3px solid var(--color);
- transition: .5s;
- position: relative;
- overflow: hidden;
- cursor: pointer;
- z-index: 1;
- font-weight: 300;
- font-size: 17px;
- font-family: 'EB Garamond', serif;
- text-transform: uppercase;
- color: var(--color);
-}
-
-.btno::after, .btno::before {
- content: '';
- display: block;
- height: 100%;
- width: 100%;
- transform: skew(90deg) translate(-50%, -50%);
- position: absolute;
- inset: 50%;
- left: 25%;
- z-index: -1;
- transition: .5s ease-out;
- background-color: var(--color);
-}
-
-.btno::before {
- top: -50%;
- left: -25%;
- transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btno:hover::before {
- transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btno:hover::after {
- transform: skew(45deg) translate(-50%, -50%);
-}
-
-.btno:hover {
- color: var(--color2);
-}
-
-.btno:active {
- filter: brightness(.7);
- transform: scale(.98);
-}
-}
 .btn-conteiner {
   display: flex;
   justify-content: center;
@@ -220,49 +143,108 @@
     outline-offset: 0;
   }
 }
-.btn2{
+.Uno{
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color:  rgb(78, 186, 200);
+  background-color: rgb(82, 230, 23);
   border: none;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
- box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164)
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
   cursor: pointer;
   transition-duration: .3s;
   overflow: hidden;
   position: relative;
-  color: white;
 }
-.svgIcon {
+
+.Uno .svgIcon {
   width: 12px;
   transition-duration: .3s;
 }
 
-.btn3{
-    width: 40px;
+.Uno .svgIcon path {
+  fill: white;
+}
+
+.Ver{
+  width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color:  rgb(234, 195, 18);
+  background-color: rgb(78, 186, 200);
   border: none;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
- box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164)
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
   cursor: pointer;
   transition-duration: .3s;
   overflow: hidden;
   position: relative;
-  color: white;
 }
-.svgIcon {
+
+.Ver .svgIcon {
   width: 12px;
   transition-duration: .3s;
 }
+
+.Ver .svgIcon path {
+  fill: white;
+}
+.Ver {
+  cursor: default;
+  text-decoration: none;
+}
+.Ver i {
+  color: white; 
+}
+
+
+
+.btn1 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(234, 195, 18);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  color: white; /* Cambio a color negro */
+}
+.btn2 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(78, 69, 180);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  color: white; /* Cambio a color negro */
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+  fill: white;
+}
+
 
 
 .button {
@@ -280,23 +262,28 @@
   transition-duration: .3s;
   overflow: hidden;
   position: relative;
-  color: white;
 }
 .svgIcon {
   width: 12px;
   transition-duration: .3s;
 }
 
+.svgIcon path {
+  fill: white;
+}
+
+
+
 </style>
     <div class="container-fluid">
         <div class="row">
         @if (Auth::user()->rol_id === 1 || Auth::user()->rol_id === 2)
-            <div class="col-sm-12">
+            <div class="col-sm-10">
                 <div class="card">
                     <br>
                 <div class="btn-conteiner">
   <a class="btn-content" href="{{ route('chequeos.create') }}">
-    <span class="btn-title">Automoviles</span>
+    <span class="btn-title">AUTOMOVILES</span>
     <span class="icon-arrow">
       <svg width="60px" height="35px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -308,13 +295,16 @@
     </span> 
   </a>
 </div> 
-                            
-                                <a href="{{ route('ChequeoExcel') }}" class="btn btn-warning btn-sm float-right"  data-placement="left">
+<br>
+                            <div class="float-left">
+                              <a href="{{ route('ChequeoExcel') }}" class="btn btn-warning btn-sm float-right"  data-placement="left">
                                     EXCEL
                                   </a>
                                   <a href="{{ route('ChequeosPDF') }}" class="btn btn-danger btn-sm float-right"  data-placement="left">
                                     PDF
                                   </a>
+                            </div>
+                                
                               
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -375,20 +365,38 @@
 											<td>{{ $chequeo->Gata }}</td>
 
                                             <td>
-                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoEnvioC }}" class="btn btn-sm btn-info" target="_blank">Ver</a> 
-                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoEnvioC }}" class="btn btn-sm btn-info" download>Descargar</a></td>
+                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoEnvioC }}" class="Ver" target="_blank"><i class="fas fa-eye"></i></a> 
+                            <br>
+                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoEnvioC }}" download>
+                                            <button class="Uno">
+                                            <svg viewBox="0 0 16 16" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" class="svgIcon">
+                                            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"></path>
+                                            </svg>
+                                            </button>
+                                            </a>
+
                                             </td>
                                             <td>
-                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoRecibidoC }}" class="btn btn-sm btn-info" target="_blank">Ver</a> 
-                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoRecibidoC }}" class="btn btn-sm btn-info" download>Descargar</a></td>
-                                            </td>
+                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoRecibidoC }}" class="Ver" target="_blank"><i class="fas fa-eye"></i></a> 
+                                         
+                                            <a href="/Chequeo2PDF/{{ $chequeo->documentoRecibidoC }}" download>
+                                            <br>
+                                            <button class="Uno">
+                                            <svg viewBox="0 0 16 16" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" class="svgIcon">
+                                            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"></path>
+                                            </svg>
+                                            </button>
+                                            </a>  
+                                          </td>
                                             <td>
                                                 <form action="{{ route('chequeos.destroy',$chequeo->idchequeos) }}" method="POST"> 
-                                                    <a class="btn btn-sm btn-warning" href="{{ route('chequeos.edit',$chequeo->idchequeos) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
-                                                    <a class="btn btn-sm btn-info" href="{{ route('pdf2',$chequeo->idchequeos) }}"><i class="fa fa-fw fa-edit"></i> PDF</a>
+                                                    <a class="btn1" href="{{ route('chequeos.edit',$chequeo->idchequeos) }}"><i class="fa fa-fw fa-edit"></i> </a>
+                                                    <br>
+                                                    <a class="btn2" href="{{ route('pdf2',$chequeo->idchequeos) }}"><i class="fa fa-print"></i></a>
+                                                    <br>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                                    <button type="submit" class="button"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

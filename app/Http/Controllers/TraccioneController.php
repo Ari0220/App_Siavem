@@ -49,7 +49,7 @@ class TraccioneController extends Controller
         $traccione = Traccione::create($request->all());
 
         return redirect()->route('tracciones.index')
-            ->with('success', 'Traccion creado correctamente.');
+            ->with('success', 'Tracción creado correctamente.');
     }
 
     /**
@@ -92,7 +92,7 @@ class TraccioneController extends Controller
         $traccione->update($request->all());
 
         return redirect()->route('tracciones.index')
-            ->with('success', 'Traccion editado correctamente.');
+            ->with('success', 'Tracción editado correctamente.');
     }
 
     /**
@@ -108,11 +108,11 @@ class TraccioneController extends Controller
 
         $traccione = Traccione::find($id)->delete();
         return redirect()->route('tracciones.index')
-            ->with('success', 'Traccion eliminado correctamente.');
+            ->with('success', 'Tracción eliminado correctamente.');
         }else {
 
             return redirect()->route('tracciones.index')
-            ->with('success', 'Traccion esta en una Unidad');
+            ->with('success', 'Tracción esta en una Unidad');
        
         }
     }

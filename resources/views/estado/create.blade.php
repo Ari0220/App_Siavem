@@ -30,28 +30,6 @@
   position: relative; /* Agregado */
 }
 
-.card:hover {
-  border: 1px solid black;
-  transform: scale(1.05);
-}
-
-.card:active {
-  transform: scale(0.95) rotateZ(1.7deg);
-}
-
-.float-right {
-  position: absolute;
-  top: 2px;
-  right: 0;
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 600px) {
-  .card {
-    width: 90vw;
-    height: auto;
-  }
-  }
 </style>
 
 <section class="content container-fluid">

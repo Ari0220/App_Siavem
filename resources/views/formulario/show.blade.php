@@ -40,18 +40,47 @@
         width: 200px;
         font-weight: bold;
     }
+    .row{
+        justify-content: center;
+    }
+    .card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  background: hsl(105, 9%, 91%);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  position: relative; /* Agregado */
+}
 </style>
 
 <section class="content container-fluid">
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div class="card">
-                <div class="card-header  justify-content-center" style="text-align: center;">
-                    <h3 class="card-title">Mostrar Solicitud</h3>
+              <br>
                     <div class="float-right">
-                        <a class="btn btn-primary" href="{{ route('formularios.index') }}">Back</a>
+                        <a class="btn btn-danger" href="{{ route('formularios.index') }}">Atrás</a>
                     </div>
-                </div>
+                
 
                 <div class="card-body">
                     <div class="row">

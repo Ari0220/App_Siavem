@@ -68,10 +68,9 @@
         </div>
         <div class="form-group">
     {{ Form::label('Observaciones') }}
-    {{ Form::text('Observaciones', $formulario->Observaciones, ['pattern' => '^$', 'class' => 'form-control' . ($errors->has('Observaciones') ? ' is-invalid' : ''), 'placeholder' => 'Observaciones']) }}
+    {{ Form::text('Observaciones', $formulario->Observaciones, ['pattern' => '[A-Za-z]+', 'class' => 'form-control' . ($errors->has('Observaciones') ? ' is-invalid' : ''), 'placeholder' => 'Observaciones']) }}
     {!! $errors->first('Observaciones', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
-
         <div class="form-group">
             {{ Form::label('Documento Autorizacion') }}
             {{ Form::file('documento', ['class' => 'form-control' . ($errors->has('documento') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione PDF']) }}
@@ -80,7 +79,7 @@
    </br>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">Enviar</button>
-        <a class="btn btn-danger" href="{{ route('formularios.index') }}"> Atras</a>
+        <a class="btn btn-danger" href="{{ route('formularios.index') }}"> Atrás</a>
 
     </div>
 </div>

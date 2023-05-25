@@ -30,12 +30,12 @@ class CorrectivoController extends Controller
     public function generarPDF(){
         $info = Correctivo::get();
         $data = [
-            'title' => 'Listado de correctivos',
+            'title' => 'Listado de Mantenimiento Correctivos',
             'date' => date('m/d/Y'),
             'info' => $info
         ];    
         $pdf = PDF::loadView('correctivo.PDF', $data);
-        return $pdf->download('Listado de correctivos.pdf');
+        return $pdf->download('Listado de Mantenimiento Correctivos.pdf');
     }
     public function generarEXCEL(){
         ob_end_clean();
@@ -69,7 +69,7 @@ class CorrectivoController extends Controller
         $correctivo = Correctivo::create($request->all());
 
         return redirect()->route('correctivos.index')
-            ->with('success', 'Correctivo creado correctamente.');
+            ->with('success', 'Mantenimiento Correctivo creado correctamente.');
     }
 
     /**
@@ -113,7 +113,7 @@ class CorrectivoController extends Controller
         $correctivo->update($request->all());
 
         return redirect()->route('correctivos.index')
-            ->with('success', 'Correctivo editado correctamente');
+            ->with('success', 'Mantenimiento Correctivo editado correctamente');
     }
 
     /**
@@ -126,6 +126,6 @@ class CorrectivoController extends Controller
         $correctivo = Correctivo::find($id)->delete();
 
         return redirect()->route('correctivos.index')
-            ->with('success', 'Correctivo eliminado correctamente');
+            ->with('success', 'Mantenimiento Correctivo eliminado correctamente');
     }
 }
