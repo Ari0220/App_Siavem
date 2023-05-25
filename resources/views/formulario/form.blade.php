@@ -68,7 +68,7 @@
         </div>
         <div class="form-group">
     {{ Form::label('Observaciones') }}
-    {{ Form::text('Observaciones', $formulario->Observaciones, ['pattern' => '[A-Za-z]+', 'class' => 'form-control' . ($errors->has('Observaciones') ? ' is-invalid' : ''), 'placeholder' => 'Observaciones']) }}
+    {{ Form::text('Observaciones', $formulario->Observaciones, ['pattern' => '[A-Za-z ]+', 'class' => 'form-control' . ($errors->has('Observaciones') ? ' is-invalid' : ''), 'placeholder' => 'Observaciones']) }}
     {!! $errors->first('Observaciones', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
         <div class="form-group">

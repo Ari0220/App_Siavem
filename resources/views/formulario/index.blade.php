@@ -264,7 +264,7 @@ width: 40px;
 										<th>Fecha Salida</th>
 										<th>Fecha Regreso</th>
 										<th>Lugar</th>
-                                        <th>Autorizacion</th>
+                                    <!--    <th>Autorizacion</th>-->
                                         <th>Chofer</th>
 										
                                         <th>Estado</th>
@@ -289,9 +289,9 @@ width: 40px;
 											<td>{{ $formulario->FechaSalida }}</td>
 											<td>{{ $formulario->FechaRegreso }}</td>
 											<td>{{ $formulario->Lugar }}</td>
-                                            <td>
+                                       <!---     <td>
                                             <img src="{{ asset('formulario/'.$formulario->documento) }}" width="150" alt="" title="" />
-                                            </td> 
+                                            </td> -->
 											
                                             <td>{{ $formulario->empleado->Cedula }}</td>
 										
