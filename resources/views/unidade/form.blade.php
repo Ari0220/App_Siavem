@@ -82,7 +82,7 @@
                 </div>
                 <div class="form-group">
                 {{ Form::label('modelo', 'Modelo') }}
-                {{ Form::text('modelo', $unidade->modelo, ['class' => 'form-control' . ($errors->has('modelo') ? ' is-invalid' : ''), 'placeholder' => 'Modelo', 'pattern' => '^[A-Z][a-zA-Z\s]$', 'title' => 'Ingrese una sola palabra con la primera letra mayúscula', 'oninput' => 'validateFormat(this, /^[A-Z][a-zA-Z\s]$/, "El modelo debe tener una sola palabra con la primera letra mayúscula.")']) }}
+                {{ Form::text('modelo', $unidade->modelo, ['class' => 'form-control' . ($errors->has('modelo') ? ' is-invalid' : ''), 'placeholder' => 'Modelo', 'pattern' => '^[A-Z][a-zA-Z\s]*$', 'title' => 'Ingrese una sola palabra con la primera letra mayúscula', 'oninput' => 'validateFormat(this, /^[A-Z][a-zA-Z\s]*$/, "El modelo debe tener una sola palabra con la primera letra mayúscula.")']) }}
                <div id="modelo-error" class="invalid-feedback" style="display: none;"></div>
                </div>
               
@@ -103,12 +103,13 @@
                 <!-- Campos de la segunda parte del formulario -->
 
 
-                
                 <div class="form-group">
-                 {{ Form::label('estilo') }}
-                 {{ Form::text('estilo', $unidade->estilo, ['class' => 'form-control' . ($errors->has('estilo') ? ' is-invalid' : ''), 'placeholder' => 'Estilo', 'pattern' => '^[A-Z][^0-9]+$']) }}
-                 {!! $errors->first('estilo', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
-               </div>
+    {{ Form::label('estilo') }}
+    {{ Form::text('estilo', $unidade->estilo, ['class' => 'form-control' . ($errors->has('estilo') ? ' is-invalid' : ''), 'placeholder' => 'Estilo', 'pattern' => '^[A-Za-z0-9]+$']) }}
+    {!! $errors->first('estilo', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
+</div>
+
+                
 
                <div class="form-group">
                 {{ Form::label('color') }}
@@ -123,7 +124,7 @@
         </div>
         <div class="form-group">
     {{ Form::label('contratación') }}
-    {{ Form::text('contratacion', $unidade->contratacion, ['class' => 'form-control' . ($errors->has('contratacion') ? ' is-invalid' : ''), 'placeholder' => 'Digite la cantidad de la contratación en colones', 'pattern' => '^₡\d{1,3}(?:,\d{3})(?:,\d{3})(?:,\d{3})*(?:\.\d{2})?$', 'id' => 'contratacion']) }}
+    {{ Form::text('contratacion', $unidade->contratacion, ['class' => 'form-control' . ($errors->has('contratacion') ? ' is-invalid' : ''), 'placeholder' => 'Digite la cantidad de la contratación en colones', 'pattern' => '^₡\d{1,3}(?:,\d{3})*(?:,\d{3})*(?:,\d{3})*(?:\.\d{2})?$', 'id' => 'contratacion']) }}
     {!! $errors->first('contratacion', '<div class="invalid-feedback">Campo Obligatorio: debe ser una cantidad válida en colones (Ejemplo: ₡25,000,000.00)</div>') !!}
 </div>
 
@@ -139,7 +140,7 @@
 
 <div class="form-group">
     {{ Form::label('valor Hacienda') }}
-    {{ Form::text('valorHacienda', $unidade->valorHacienda, ['class' => 'form-control' . ($errors->has('valorHacienda') ? ' is-invalid' : ''), 'placeholder' => 'Digite con número la cantidad', 'pattern' => '^\₡\d{1,3}(?:,\d{3})(?:,\d{3})(?:,\d{3})*(?:\.\d{2})?$', 'id' => 'valorHacienda']) }}
+    {{ Form::text('valorHacienda', $unidade->valorHacienda, ['class' => 'form-control' . ($errors->has('valorHacienda') ? ' is-invalid' : ''), 'placeholder' => 'Digite con número la cantidad', 'pattern' => '^\₡\d{1,3}(?:,\d{3})*(?:,\d{3})*(?:,\d{3})*(?:\.\d{2})?$', 'id' => 'valorHacienda']) }}
     {!! $errors->first('valorHacienda', '<div class="invalid-feedback">Campo Obligatorio: Solo se permiten cantidades de dinero en colones</div>') !!}
 </div>
 
@@ -152,9 +153,10 @@
 
       <div class="form-group">
     {{ Form::label('descripción') }}
-    {{ Form::text('descripcion', $unidade->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripción de la Unidad', 'pattern' => '^[A-Za-z0-9\s]{1,20}$']) }}
+    {{ Form::text('descripcion', $unidade->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripción de la Unidad', 'pattern' => '^.+$']) }}
     {!! $errors->first('descripcion', '<div class="invalid-feedback">Campo Obligatorio: La descripción debe ser una cantidad corta.</div>') !!}
 </div>
+
 
 
             
@@ -197,3 +199,13 @@
     });
 
 </script>
+
+
+
+
+
+
+
+
+
+

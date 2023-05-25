@@ -215,7 +215,7 @@
                                     @foreach ($tracciones as $traccione)
                                         <tr>
                                             
-                                        <td>{{ ++$i }}</td>
+                                        <td>{{$traccione->idTraccion }}</td>
 
 
 											<td>{{ $traccione->nombreTraccion }}</td>
