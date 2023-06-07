@@ -20,7 +20,7 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
-        $departamentos = Departamento::paginate();
+        $departamentos = Departamento::paginate(3);
 
         return view('departamento.index', compact('departamentos'))
             ->with('i', (request()->input('page', 1) - 1) * $departamentos->perPage());

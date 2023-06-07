@@ -22,7 +22,7 @@ class PreventivoController extends Controller
      */
     public function index()
     {
-        $preventivos = Preventivo::paginate();
+        $preventivos = Preventivo::paginate(3);
 
         return view('preventivo.index', compact('preventivos'))
             ->with('i', (request()->input('page', 1) - 1) * $preventivos->perPage());

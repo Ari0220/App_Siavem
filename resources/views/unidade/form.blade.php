@@ -104,10 +104,11 @@
 
 
                 <div class="form-group">
-    {{ Form::label('estilo') }}
+    {{ Form::label('estilo', 'Estilo') }}
     {{ Form::text('estilo', $unidade->estilo, ['class' => 'form-control' . ($errors->has('estilo') ? ' is-invalid' : ''), 'placeholder' => 'Estilo', 'pattern' => '^[A-Za-z0-9]+$']) }}
     {!! $errors->first('estilo', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
+
 
                 
 

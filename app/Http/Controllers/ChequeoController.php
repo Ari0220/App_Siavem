@@ -26,7 +26,7 @@ class ChequeoController extends Controller
      */
     public function index()
     {
-        $chequeos = Chequeo::paginate();
+        $chequeos = Chequeo::paginate(3);
 
         return view('chequeo.index', compact('chequeos'))
             ->with('i', (request()->input('page', 1) - 1) * $chequeos->perPage());

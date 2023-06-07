@@ -30,7 +30,7 @@ class FormularioController extends Controller
      */
     public function index()
     {
-        $formularios = Formulario::paginate(10);
+        $formularios = Formulario::paginate(3);
      //   $Roles = Rol::get();
         //get para obtener todo los roles
         return view('formulario.index', compact('formularios'));

@@ -57,7 +57,7 @@ h1 {
     margin-bottom: 10px;
 }
     </style>
-    <img src="images\Logounidad.png" alt="Logo">
+      <img src="images/logos.png" alt="Logo"  height="80">
 </head>
 
 <body>

@@ -10,33 +10,8 @@
      .row{
         justify-content: center;
     }
-    .card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+    
 
-.card {
-  box-sizing: border-box;
-  width: auto;
-  height: auto;
-  background: hsl(105, 9%, 91%);
-  border: 1px solid white;
-  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(6px);
-  border-radius: 17px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.5s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  font-weight: bolder;
-  color: black;
-  position: relative; /* Agregado */
-}
 
 .btn-conteiner {
   display: flex;
@@ -262,6 +237,7 @@
   transition-duration: .3s;
   overflow: hidden;
   position: relative;
+  color: white;
 }
 .svgIcon {
   width: 12px;
@@ -280,6 +256,8 @@
         @if (Auth::user()->rol_id === 1 || Auth::user()->rol_id === 2)
             <div class="col-sm-10">
                 <div class="card">
+                <div class="card-header list-group-item-warning">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
                     <br>
                 <div class="btn-conteiner">
   <a class="btn-content" href="{{ route('chequeos.create') }}">
@@ -295,9 +273,11 @@
     </span> 
   </a>
 </div> 
+</div>
+</div>
 <br>
-                            <div class="float-left">
-                              <a href="{{ route('ChequeoExcel') }}" class="btn btn-warning btn-sm float-right"  data-placement="left">
+                            <div class="float-left text-center">
+                              <a href="{{ route('ChequeoExcel') }}" class="btn btn-success btn-sm float-right"  data-placement="left">
                                     EXCEL
                                   </a>
                                   <a href="{{ route('ChequeosPDF') }}" class="btn btn-danger btn-sm float-right"  data-placement="left">

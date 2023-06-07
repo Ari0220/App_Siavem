@@ -17,26 +17,7 @@
   min-height: 100vh;
 }
 
-.card {
-  box-sizing: border-box;
-  width: auto;
-  height: auto;
-  background: hsl(105, 9%, 91%);
-  border: 1px solid white;
-  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(6px);
-  border-radius: 17px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.5s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  font-weight: bolder;
-  color: black;
-  position: relative; /* Agregado */
-}
+
 .btn-conteiner {
   display: flex;
   justify-content: center;
@@ -186,6 +167,29 @@ width: 40px;
   transition-duration: .3s;
 }
 
+.btn4 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(78, 69, 180);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  color: white; /* Cambio a color negro */
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+  fill: white;
+}
 
 .button {
   width: 40px;
@@ -208,6 +212,9 @@ width: 40px;
   width: 12px;
   transition-duration: .3s;
 }
+.float-right.d-flex a.btn {
+    margin-right: 10px; /* Ajusta el valor según tus necesidades */
+}
 
 </style>
     <div class="container-fluid">
@@ -215,7 +222,8 @@ width: 40px;
             @if (Auth::user()->rol_id === 1 || Auth::user()->rol_id === 2 || Auth::user()->rol_id === 3)
             <div class="col-sm-10">
                 <div class="card">
-                    <br>.
+                <div class="card-header list-group-item-warning">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
 
                 <div class="btn-conteiner">
                     <a class="btn-content" href="{{ route('formularios.create') }}">
@@ -231,10 +239,12 @@ width: 40px;
                         </span> 
                     </a>
                     </div>   
-                    <br>
-
-                             <div class="float-right d-flex">
-                                <a href="{{ route('GiraExcel') }}" class="btn btn-warning btn-sm float-right"  data-placement="left">
+                 
+</div>
+</div>
+<br>
+                             <div class="float-left text-center">
+                                <a href="{{ route('GiraExcel') }}" class="btn btn-success btn-sm float-right"  data-placement="left">
                                     EXCEL
                                   </a>
                                   <a href="{{ route('GiraPDF') }}" class="btn btn-danger btn-sm float-right"  data-placement="left">
@@ -309,7 +319,7 @@ width: 40px;
                                                     <a class="btn3" href="{{ route('formularios.edit',$formulario->idFormularios) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     <br>
                                                     @if($formulario->estado == 1)
-                                                    <a class="btn btn-sm btn-info" href="{{ route('pdf',$formulario->idFormularios) }}"><i class="fa fa-print"></i></a>
+                                                    <a class="btn4" href="{{ route('pdf',$formulario->idFormularios) }}"><i class="fa fa-print"></i></a>
                                                     @endif
         <br>
                                                     @csrf

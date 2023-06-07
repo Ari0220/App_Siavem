@@ -22,7 +22,7 @@ class CorrectivoController extends Controller
      */
     public function index()
     {
-        $correctivos = Correctivo::paginate();
+        $correctivos = Correctivo::paginate(3);
 
         return view('correctivo.index', compact('correctivos'))
             ->with('i', (request()->input('page', 1) - 1) * $correctivos->perPage());

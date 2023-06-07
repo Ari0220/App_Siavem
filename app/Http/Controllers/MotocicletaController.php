@@ -23,7 +23,7 @@ class MotocicletaController extends Controller
      */
     public function index()
     {
-        $motocicletas = Motocicleta::paginate();
+        $motocicletas = Motocicleta::paginate(3);
 
         return view('motocicleta.index', compact('motocicletas'))
             ->with('i', (request()->input('page', 1) - 1) * $motocicletas->perPage());

@@ -114,12 +114,6 @@
                                 </div>
                             </li>
                          @endif
-                            @if (Auth::user()->rol_id === 1 || Auth::user()->rol_id === 2 || Auth::user()->rol_id === 3)
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('formularios.index') }}"><b>{{ __('Solicitud Gira') }}</b> </a>
-                            </li>
-                            @endif
                             @if (Auth::user()->rol_id === 1 || Auth::user()->rol_id === 2)
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -151,6 +145,12 @@
 
 
                                 </div>
+                            </li>
+                            @endif
+                            @if (Auth::user()->rol_id === 1 || Auth::user()->rol_id === 2 || Auth::user()->rol_id === 3)
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="{{ route('formularios.index') }}"><b>{{ __('Solicitud Gira') }}</b> </a>
                             </li>
                             @endif
                         </ul>

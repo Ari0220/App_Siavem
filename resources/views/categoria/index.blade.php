@@ -17,26 +17,7 @@
   min-height: 100vh;
 }
 
-.card {
-  box-sizing: border-box;
-  width: auto;
-  height: auto;
-  background: hsl(105, 9%, 91%);
-  border: 1px solid white;
-  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(6px);
-  border-radius: 17px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.5s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  font-weight: bolder;
-  color: black;
-  position: relative; /* Agregado */
-}
+
 
 .btn-conteiner {
   display: flex;
@@ -191,8 +172,11 @@
             @if (Auth::user()->rol_id === 1 || Auth::user()->rol_id === 2)
             <div class="col-sm-6">
                 <div class="card">
+                <div class="card-header list-group-item-warning">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+
                <br>
-               <div class="btn-conteiner">
+               <div class="btn-conteiner float-left">
   <a class="btn-content" href="{{ route('categorias.create') }}">
     <span class="btn-title">CATEGORÍAS</span>
     <span class="icon-arrow">
@@ -206,7 +190,8 @@
     </span> 
   </a>
 </div> 
-                             
+</div> 
+</div>                 
                        
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">

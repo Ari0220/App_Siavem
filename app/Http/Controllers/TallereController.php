@@ -23,7 +23,7 @@ class TallereController extends Controller
      */
     public function index()
     {
-        $talleres = Tallere::paginate();
+        $talleres = Tallere::paginate(3);
 
         return view('tallere.index', compact('talleres'))
             ->with('i', (request()->input('page', 1) - 1) * $talleres->perPage());

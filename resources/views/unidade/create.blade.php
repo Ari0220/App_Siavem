@@ -41,7 +41,7 @@
 </style>
     <section class="content container-fluid">
         <div class="row">
-            <div class="col-md-6">
+           
 
                 @includeif('partials.errors')
 
@@ -55,7 +55,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            
         </div>
     </section>
 @endsection

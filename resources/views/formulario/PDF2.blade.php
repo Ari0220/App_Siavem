@@ -48,6 +48,7 @@
             font-size: 14px; /* Tamaño de letra más pequeño */
         }
     </style>
+        <img src="images/logos.png" alt="Logo"  height="80">
     <div class="card">
         <div class="card-header text-center">
             <h1>{{ $title }}</h1>

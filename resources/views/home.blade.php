@@ -12,11 +12,14 @@
 <style> 
   Body div .main-home h1 {
     text-align: center;
-    font-family: 'EB Garamond', serif;
+    font-family: "Poppins", sans-serif;
   }
-  
+  body div p {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+  }
   body div .descrip {
-    font-family: 'EB Garamond', serif;
+    font-family: "Poppins", sans-serif;
     font-size: 1.5rem;
     text-align: center;
   }
@@ -48,7 +51,7 @@ article a::after {
 /* basic article elements styling */
 article h2 {
   margin: 0 0 18px 0;
-  font-family: 'EB Garamond', serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
   letter-spacing: 0.06em;
   color: var(--title-color);
@@ -71,6 +74,7 @@ article img {
 
 .article-body {
   padding: 24px;
+  
 }
 
 article a {
@@ -104,9 +108,9 @@ article:has(:hover, :focus) {
 }
 
 
-/************************ 
+/******** 
 Generic layout (demo looks)
-**************************/
+**********/
 
 *,
 *::before,
@@ -211,100 +215,205 @@ Generic layout (demo looks)
 }
 
 
-.main-home {
-  background-image: url('images/Fondo3.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  height: 100vh; /* Ajusta la altura al 100% del viewport */
-  color: white; /* Cambiar el color del texto a blanco */
-  margin: 0; /* Eliminar el margen */
-  /* Otras propiedades de estilo que desees agregar */
-}
 
 .container {
   text-align: center;
   margin-bottom: 20px; /* Margen inferior para separar el texto del borde */
 }
 
-.encargados {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Estilos para pantallas mayores a 380px */
+@container card (min-width: 380px) {
+  .article-wrapper {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+  }
+  .article-body {
+    padding-left: 0;
+  }
+  figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  figure img {
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+/*ENCARGADOS */
+ /* Agrega aquí tus estilos CSS */
+ @media screen and (max-width: 600px) {
+  /* Estilos para pantallas con un ancho máximo de 600px */
+  .section .encargados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%; /* Cambia "fit-content" por "100%" */
+  }
+  .article-wrapper {
+    margin-bottom: 20px;
+  }
 }
 
 .encargado-figure {
-  width: 150px; /* Ajusta el ancho del contenedor según tus necesidades */
-  height: 150px; /* Ajusta la altura del contenedor según tus necesidades */
-  margin: 0 10px; /* Ajusta los márgenes laterales según tus necesidades */
-  overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex; /* Agrega esta línea para usar flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
 }
 
 .encargado-figure img {
-  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
-  height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+  width: 100%;
+  height: auto;
+  justify-content: center;
 }
+/* Estilos personalizados para el carrusel */
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  margin-top: -24px;
+  justify-content: center; /* Centra horizontalmente las imágenes */
+  align-items: center; /* Centra verticalmente las imágenes */
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 100%;
+  transition: transform 0.4s ease-in-out;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente las imágenes */
+
+}
+
+.carousel-item:not(.active) {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.carousel-item.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  font-size: 20px;
+}
+
+.carousel-controls button:focus {
+  outline: none;
+}
+
+.carousel-controls button:hover {
+  color: #28666e;
+}
+.carousel-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ajusta el tamaño de las imágenes manteniendo su relación de aspecto */
+}
+
+@media screen and (max-width: 600px) {
+  .carousel-item img {
+    width: auto; /* Restablece el ancho de las imágenes en pantallas pequeñas */
+    height: 100%;
+  }
+}
+
 
 </style>
 </head> 
 <body>
 <div class="main-home">
-  <div class="container">
-    <h1><strong>BIENVENIDOS A LA UNIDAD DE TRANSPORTE</strong></h1>
+    <!-- Carrusel -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="justify-content: center;">
+      <img src="images/SIAVEMWd.jpg" alt="Slide 1"> 
+    </div>
+    <div class="carousel-item" style="justify-content: center; width" >
+      <img src="images/Siavem1.jpg" alt="Slide 2">
+    </div>
+    <div class="carousel-item" style="justify-content: center;">
+      <img src="images/Siavem2.jpg" alt="Slide 3">
+    </div> 
+    <div class="carousel-item" style="justify-content: center;">
+      <img src="images/MUNICIPALIDAD.jpg" alt="Slide 4">
+    </div> 
+    <!-- Agrega más elementos carousel-item según tus necesidades -->
   </div>
-  <div class="descrip">
-  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
+  </div>
 <br>
 <br>
 <br>
-<h1 class="container"
-class="text-center" > <strong>Encargados</strong></h1>
-<br>
-<br>
-</section>
-<section class="encargados">
-  <article>
-    <div class="article-wrapper">
-      <figure class="encargado-figure">
-        <img src="images/USUARIO2.png" alt="" />
-      </figure>
-      <div class="article-body">
-        <h2>Alcaldía Santa Cruz</h2>
-        <p>Mtr. Jorge Alfaro Orias</p>
+<h1 class="container text-center"><strong>Encargados</strong></h1>
+  <br>
+  <br>
+  <section class="encargados">
+    <article>
+      <div class="article-wrapper" >
+        <figure class="encargado-figure">
+          <img src="images/USUARIO2.png" alt="" />
+        </figure>
+        <div class="article-body">
+          <h2>Alcaldía Santa Cruz</h2>
+          <p>Mtr. Jorge Alfaro Orias</p>
+        </div>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <article>
-    <div class="article-wrapper">
-      <figure class="encargado-figure">
-        <img src="images/USUARIO1.png" alt="" />
-      </figure>
-      <div class="article-body">
-        <h2>Unidad de Transporte</h2>
-        <p>Lic. Amalia Gutierrez</p>
+    <article>
+      <div class="article-wrapper">
+        <figure class="encargado-figure">
+          <img src="images/USUARIO1.png" alt="" />
+        </figure>
+        <div class="article-body">
+          <h2>Unidad de Transporte</h2>
+          <p>Lic. Amalia Gutierrez</p>
+        </div>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <article>
-    <div class="article-wrapper">
-      <figure class="encargado-figure">
-        <img src="images/USUARIO2.png" alt="" />
-      </figure>
-      <div class="article-body">
-        <h2>Unidad de informática</h2>
-        <p>Mtr. Manrique Solorzano</p>
+    <article>
+      <div class="article-wrapper">
+        <figure class="encargado-figure">
+          <img src="images/USUARIO2.png" alt="" />
+        </figure>
+        <div class="article-body">
+          <h2>Unidad de informática</h2>
+          <p>Mtr. Manrique Solorzano</p>
+        </div>
       </div>
-    </div>
-  </article>
-</section>
+    </article>
+  </section>
 
+ 
 <br>
 <br>
 <br>
