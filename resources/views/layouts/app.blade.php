@@ -31,8 +31,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
-
+    <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm ">
             <div class="container">
 
                 <a class="navbar-brand" href="{{ url('/home') }}">
@@ -65,7 +64,7 @@
                                         href="{{ route('combustibles.index') }}"><b>{{ __('Tipo Combustibles') }}</b>
                                     </a>
                                     <a class="nav-link"
-                                        href="{{ route('tracciones.index') }}"><b>{{ __('Tipo Traccion') }}</b> </a>
+                                        href="{{ route('tracciones.index') }}"><b>{{ __('Tipo Tracción') }}</b> </a>
                                 </div>
                             </li>
 
@@ -102,12 +101,12 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <b>Vehiculos</b>
+                                    <b>Vehículos</b>
 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                     <a class="dropdown-item"
-                                        href="{{ route('categorias.index') }}"><b>Categorias</b></a>
+                                        href="{{ route('categorias.index') }}"><b>Categorías</b></a>
                                     <a class="dropdown-item" href="{{ route('unidades.index') }}"><b>Unidades</b></a>
 
 
@@ -135,13 +134,13 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <b>Inspeccion</b>
+                                    <b>Inspección</b>
 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                     <a class="dropdown-item"
                                         href="{{ route('motocicletas.index') }}"><b>Motocicletas</b></a>
-                                    <a class="dropdown-item" href="{{ route('chequeos.index') }}"><b>Automoviles</b></a>
+                                    <a class="dropdown-item" href="{{ route('chequeos.index') }}"><b>Automóviles</b></a>
 
 
                                 </div>

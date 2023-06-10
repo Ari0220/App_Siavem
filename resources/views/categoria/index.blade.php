@@ -7,18 +7,9 @@
 
 @section('content')
 <style>
-  .row{
+    .row{
         justify-content: center;
     }
-    .card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-
-
 .btn-conteiner {
   display: flex;
   justify-content: center;
@@ -174,9 +165,7 @@
                 <div class="card">
                 <div class="card-header list-group-item-warning">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-               <br>
-               <div class="btn-conteiner float-left">
+               <div class="btn-conteiner">
   <a class="btn-content" href="{{ route('categorias.create') }}">
     <span class="btn-title">CATEGORÍAS</span>
     <span class="icon-arrow">

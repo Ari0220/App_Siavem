@@ -336,7 +336,15 @@ Generic layout (demo looks)
     height: 100%;
   }
 }
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  margin-top: -24px;
 
+  justify-content: center; /* Centra horizontalmente las imágenes */
+  align-items: center; /* Centra verticalmente las imágenes */
+}
 
 </style>
 </head> 
@@ -346,16 +354,16 @@ Generic layout (demo looks)
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" style="justify-content: center;">
-      <img src="images/SIAVEMWd.jpg" alt="Slide 1"> 
+      <img src="images/SIAVEMWd.webp" alt="Slide 1"> 
     </div>
     <div class="carousel-item" style="justify-content: center; width" >
-      <img src="images/Siavem1.jpg" alt="Slide 2">
+      <img src="images/Siavem1.webp" alt="Slide 2">
     </div>
     <div class="carousel-item" style="justify-content: center;">
-      <img src="images/Siavem2.jpg" alt="Slide 3">
+      <img src="images/Siavem2.webp" alt="Slide 3">
     </div> 
     <div class="carousel-item" style="justify-content: center;">
-      <img src="images/MUNICIPALIDAD.jpg" alt="Slide 4">
+      <img src="images/MUNICIPALIDAD.webp" alt="Slide 4">
     </div> 
     <!-- Agrega más elementos carousel-item según tus necesidades -->
   </div>
@@ -498,7 +506,7 @@ class="text-center" > <strong>Desarrolladores</strong></h1>
   <article>
     <div class="article-wrapper">
       <figure>
-        <img src="images\Ariana.jpeg" alt="" />
+        <img src="images\Ariana.webp" alt="" />
       </figure>
       <div class="article-body">
         <h2>FRONT-END</h2>
@@ -512,11 +520,11 @@ class="text-center" > <strong>Desarrolladores</strong></h1>
   <article>
     <div class="article-wrapper">
       <figure>
-        <img src="images/YUSTIN.jpeg" alt="" />
+        <img src="images/Yustin.webp" alt="" />
       </figure>
       <div class="article-body">
         <h2>BACK-END</h2>
-        <p> Yustin Lopez Salas
+        <p> Yustin López  Salas
         </p>
        
       </div>
@@ -526,7 +534,7 @@ class="text-center" > <strong>Desarrolladores</strong></h1>
   <article>
     <div class="article-wrapper">
       <figure>
-        <img src="images/ABIGAIL.jpeg" alt="" />
+        <img src="images/Abigail.webp" alt="" />
       </figure>
       <div class="article-body">
         <h2>FRONT-END</h2>

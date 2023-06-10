@@ -11,8 +11,6 @@
         justify-content: center;
     }
     
-
-
 .btn-conteiner {
   display: flex;
   justify-content: center;
@@ -258,7 +256,6 @@
                 <div class="card">
                 <div class="card-header list-group-item-warning">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <br>
                 <div class="btn-conteiner">
   <a class="btn-content" href="{{ route('chequeos.create') }}">
     <span class="btn-title">AUTOMOVILES</span>
