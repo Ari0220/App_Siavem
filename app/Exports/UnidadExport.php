@@ -5,16 +5,22 @@ namespace App\Exports;
 use DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Style\Border;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
 
-class UnidadExport implements FromCollection,WithHeadings
+class UnidadExport implements FromCollection, WithHeadings, ShouldAutoSize, WithStyles
 {
-       /**
-    * @return \Illuminate\Support\Collection
-    */
+    /**
+     * @return \Illuminate\Support\Collection
+     */
     public function headings(): array
     {
         return [
-            'Categoria',
+            'Categoría',
             'Tracción',
             'Combustible',
             'Estado',
@@ -29,21 +35,50 @@ class UnidadExport implements FromCollection,WithHeadings
             'Valor de Hacienda',
             'RTV',
             'Descripción',
-            
         ];
     }
+
     public function collection()
     {
         $datos = DB::table('unidades')
-        ->select('categorias.nombre as categoria','tracciones.nombreTraccion', 'combustibles.nombreCombustibles', 'estados.nombreEstados','unidades.placa',
-        'unidades.placa','unidades.marca','unidades.modelo','unidades.estilo','unidades.color','unidades.ayoFabricacion','unidades.contratacion','unidades.valorAdqui',
-        'unidades.valorHacienda','unidades.RVT','unidades.descripcion',)
-        ->join('categorias', 'categorias.id', '=', 'unidades.categoria_id')
-        ->join('tracciones', 'tracciones.idTraccion', '=', 'unidades.tracciones_id')
-        ->join('combustibles', 'combustibles.idCombustibles', '=', 'unidades.combustibles_id')
-        ->join('estados', 'estados.idEstados', '=', 'unidades.estados_id')
-        ->get();
-         return $datos;
+            ->select(
+                'categorias.nombre as categoria',
+                'tracciones.nombreTraccion',
+                'combustibles.nombreCombustibles',
+                'estados.nombreEstados',
+                'unidades.placa',
+                'unidades.marca',
+                'unidades.modelo',
+                'unidades.estilo',
+                'unidades.color',
+                'unidades.ayoFabricacion',
+                'unidades.contratacion',
+                'unidades.valorAdqui',
+                'unidades.valorHacienda',
+                'unidades.RVT',
+                'unidades.descripcion'
+            )
+            ->join('categorias', 'categorias.id', '=', 'unidades.categoria_id')
+            ->join('tracciones', 'tracciones.idTraccion', '=', 'unidades.tracciones_id')
+            ->join('combustibles', 'combustibles.idCombustibles', '=', 'unidades.combustibles_id')
+            ->join('estados', 'estados.idEstados', '=', 'unidades.estados_id')
+            ->get();
 
+        return $datos;
+    }
+
+    public function styles(Worksheet $sheet)
+    {
+        return [
+            // Style the first row as bold text.
+            1 => [
+                'font' => ['bold' => true],
+                'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER],
+                'fill' => [
+                    'fillType' => Fill::FILL_SOLID,
+                    'startColor' => ['rgb' => 'DDDDDD']
+                ],
+            ],
+        ];
     }
 }

@@ -13,7 +13,8 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -36,7 +37,7 @@
 
                 <a class="navbar-brand" href="{{ url('/home') }}">
 
-                <img src="{{ asset('images/logos.png') }}" alt="..." height="80">
+                <img src="{{ asset('images/logos.webp') }}" alt="..." height="80">
 
                 </a>
 
