@@ -3,7 +3,7 @@
     <div class="box-body">
         <div class="form-group">
             {{ Form::label('Departamento') }}
-            {{ Form::select('depar_id', $departamento,$formulario->depar_id, ['class' => 'form-control' . ($errors->has('depar_id') ? ' is-invalid' : ''), 'placeholder' => '']) }}
+            {{ Form::select('depar_id', $departamento,$formulario->depar_id, ['class' => 'form-control' . ($errors->has('depar_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione']) }}
             {!! $errors->first('depar_id', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
 
@@ -14,8 +14,8 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('Nombre completo acompañantes') }}
-            {{ Form::text('NumePersonas', $formulario->NumePersonas, ['class' => 'form-control' . ($errors->has('NumePersonas') ? ' is-invalid' : ''), 'placeholder' => 'Numero de personas']) }}
+            {{ Form::label('Cédula y Nombre completo acompañantes') }}
+            {{ Form::text('NumePersonas', $formulario->NumePersonas, ['class' => 'form-control' . ($errors->has('NumePersonas') ? ' is-invalid' : ''), 'placeholder' => 'Nombre y cedula personas']) }}
             {!! $errors->first('NumePersonas', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>      
         <div class="form-group">

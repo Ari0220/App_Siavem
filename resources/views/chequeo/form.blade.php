@@ -46,7 +46,7 @@
 
         <div class="form-group">
             {{ Form::label('Combustible: ') }}
-            {{ Form::select('Combustible', ['' => 'Seleccione:', '0' => '0', '1/4' => '1/4', '1/2' => '1/2', 'FULL' => 'FULL'], $chequeo->Combustible, ['class' => 'form-control', 'id' => 'Combustible', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Combustible', ['' => 'Seleccione', '0' => '0', '1/4' => '1/4', '1/2' => '1/2', 'FULL' => 'FULL'], $chequeo->Combustible, ['class' => 'form-control', 'id' => 'Combustible', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Combustible', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -57,7 +57,7 @@
     <div class="col-md-4">
         <div class="form-group">
             {{ Form::label(' Baja: ') }}
-            {{ Form::select('LuzBaja', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzBaja, ['class' => 'form-control', 'id' => 'LuzBaja', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('LuzBaja', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzBaja, ['class' => 'form-control', 'id' => 'LuzBaja', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('LuzBaja', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -65,7 +65,7 @@
     <div class="col-md-4">
         <div class="form-group">
             {{ Form::label(' Alta: ') }}
-            {{ Form::select('LuzAlta', ['' => 'Seleccione:',  'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzAlta, ['class' => 'form-control', 'id' => 'LuzAlta', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('LuzAlta', ['' => 'Seleccione',  'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzAlta, ['class' => 'form-control', 'id' => 'LuzAlta', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('LuzAlta', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -73,7 +73,7 @@
     <div class="col-md-4">
         <div class="form-group">
             {{ Form::label(' Marcha: ') }}
-            {{ Form::select('LuzMarcha', ['' => 'Seleccione:',  'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzMarcha, ['class' => 'form-control', 'id' => 'LuzMarcha', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('LuzMarcha', ['' => 'Seleccione',  'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzMarcha, ['class' => 'form-control', 'id' => 'LuzMarcha', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('LuzMarcha', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -82,7 +82,7 @@
     <div class="col-md-4">
         <div class="form-group">
             {{ Form::label(' Interior: ') }}
-            {{ Form::select('LuzInterior', ['' => 'Seleccione:',  'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzInterior, ['class' => 'form-control', 'id' => 'LuzInterior', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('LuzInterior', ['' => 'Seleccione',  'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzInterior, ['class' => 'form-control', 'id' => 'LuzInterior', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('LuzInterior', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -90,7 +90,7 @@
     <div class="col-md-4">
         <div class="form-group">
             {{ Form::label(' Freno: ') }}
-            {{ Form::select('LuzFreno', ['' => 'Seleccione:',  'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzFreno, ['class' => 'form-control', 'id' => 'LuzFreno', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('LuzFreno', ['' => 'Seleccione',  'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzFreno, ['class' => 'form-control', 'id' => 'LuzFreno', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('LuzFreno', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -98,7 +98,7 @@
     <div class="col-md-4">
         <div class="form-group">
             {{ Form::label(' Intermitentes: ') }}
-            {{ Form::select('Intermitentes', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Intermitentes, ['class' => 'form-control', 'id' => 'Intermitentes', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Intermitentes', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Intermitentes, ['class' => 'form-control', 'id' => 'Intermitentes', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Intermitentes', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -106,7 +106,7 @@
     <div class="col-md-4">
         <div class="form-group">
             {{ Form::label(' Parking: ') }}
-            {{ Form::select('LuzParking', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzParking, ['class' => 'form-control', 'id' => 'LuzParking', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('LuzParking', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LuzParking, ['class' => 'form-control', 'id' => 'LuzParking', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('LuzParking', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -117,7 +117,7 @@
     <div class="col">
     <div class="form-group">
     <label for="Alojenos">Alojenos:</label>
-    {{ Form::select('Alojenos', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Alojenos, ['class' => 'form-control', 'id' => 'Alojenos', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('Alojenos', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Alojenos, ['class' => 'form-control', 'id' => 'Alojenos', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('Alojenos', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
      </div>
     </div>
@@ -125,7 +125,7 @@
 <div class="col">
    <div class="form-group">
     <label for="Escobillas">Escobillas:</label>
-    {{ Form::select('Escobillas', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Escobillas, ['class' => 'form-control', 'id' => 'Escobillas', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('Escobillas', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Escobillas, ['class' => 'form-control', 'id' => 'Escobillas', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('Escobillas', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
    </div>
      </div>
@@ -133,7 +133,7 @@
        <div class="col">
        <div class="form-group">
     <label for="Extintor">Extintor:</label>
-    {{ Form::select('Extintor', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Extintor, ['class' => 'form-control', 'id' => 'Extintor', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('Extintor', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Extintor, ['class' => 'form-control', 'id' => 'Extintor', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('Extintor', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
         </div>
@@ -144,21 +144,21 @@
     <div class="col">
         <div class="form-group">
             {{ Form::label('Botiquin: ') }}
-            {{ Form::select('Botiquin', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Botiquin, ['class' => 'form-control', 'id' => 'Botiquin', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Botiquin', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Botiquin, ['class' => 'form-control', 'id' => 'Botiquin', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Botiquin', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('Triangulos: ') }}
-            {{ Form::select('Triangulos', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Triangulos, ['class' => 'form-control', 'id' => 'Triangulos', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Triangulos', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Triangulos, ['class' => 'form-control', 'id' => 'Triangulos', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Triangulos', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('Cinturon: ') }}
-            {{ Form::select('Cinturon', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Cinturon, ['class' => 'form-control', 'id' => 'Cinturon', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Cinturon', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Cinturon, ['class' => 'form-control', 'id' => 'Cinturon', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Cinturon', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -168,21 +168,21 @@
     <div class="col">
         <div class="form-group">
             {{ Form::label('Puerta: ') }}
-            {{ Form::select('ChapaPuerta', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->ChapaPuerta, ['class' => 'form-control', 'id' => 'ChapaPuerta', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('ChapaPuerta', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->ChapaPuerta, ['class' => 'form-control', 'id' => 'ChapaPuerta', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('ChapaPuerta', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('Pito: ') }}
-            {{ Form::select('Pito', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Pito, ['class' => 'form-control', 'id' => 'Pito', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Pito', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Pito, ['class' => 'form-control', 'id' => 'Pito', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Pito', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('Parabrisas: ') }}
-            {{ Form::select('Parabrisas', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Parabrisas, ['class' => 'form-control', 'id' => 'Parabrisas', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Parabrisas', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Parabrisas, ['class' => 'form-control', 'id' => 'Parabrisas', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Parabrisas', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -193,21 +193,21 @@
     <div class="col">
         <div class="form-group">
             {{ Form::label('Vidrios Laterales: ') }}
-            {{ Form::select('VidriosLaterales', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->VidriosLaterales, ['class' => 'form-control', 'id' => 'VidriosLaterales', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('VidriosLaterales', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->VidriosLaterales, ['class' => 'form-control', 'id' => 'VidriosLaterales', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('VidriosLaterales', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('Climatizacion: ') }}
-            {{ Form::select('Climatizacion', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Climatizacion, ['class' => 'form-control', 'id' => 'Climatizacion', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Climatizacion', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Climatizacion, ['class' => 'form-control', 'id' => 'Climatizacion', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Climatizacion', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('Bateria: ') }}
-            {{ Form::select('Bateria', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Bateria, ['class' => 'form-control', 'id' => 'Bateria', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Bateria', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Seleccione','Regular', 'Malo' => 'Malo'], $chequeo->Bateria, ['class' => 'form-control', 'id' => 'Bateria', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Bateria', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -217,21 +217,21 @@
     <div class="col">
         <div class="form-group">
             {{ Form::label('Nivel Refrigeracion: ') }}
-            {{ Form::select('NivelRefrigeracion', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->NivelRefrigeracion, ['class' => 'form-control', 'id' => 'NivelRefrigeracion', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('NivelRefrigeracion', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->NivelRefrigeracion, ['class' => 'form-control', 'id' => 'NivelRefrigeracion', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('NivelRefrigeracion', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('Nivel Aceite: ') }}
-            {{ Form::select('NivelAceite', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->NivelAceite, ['class' => 'form-control', 'id' => 'NivelAceite', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('NivelAceite', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->NivelAceite, ['class' => 'form-control', 'id' => 'NivelAceite', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('NivelAceite', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('Alfombras: ') }}
-            {{ Form::select('Alfombras', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Alfombras, ['class' => 'form-control', 'id' => 'Alfombras', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('Alfombras', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Alfombras, ['class' => 'form-control', 'id' => 'Alfombras', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('Alfombras', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -239,7 +239,7 @@
 
 <div class="form-group">
     {{ Form::label('Radio: ') }}
-    {{ Form::select('Radio', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Radio, ['class' => 'form-control', 'id' => 'Radio', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('Radio', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Radio, ['class' => 'form-control', 'id' => 'Radio', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('Radio', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
 <br />
@@ -261,14 +261,14 @@
     <div class="col">
         <div class="form-group">
             {{ Form::label(' Delanteros: ') }}
-            {{ Form::select('AsientosD', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->AsientosD, ['class' => 'form-control', 'id' => 'AsientosD', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('AsientosD', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->AsientosD, ['class' => 'form-control', 'id' => 'AsientosD', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('AsientosD', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label(' Traseros: ') }}
-            {{ Form::select('AsientosT', ['' => 'Seleccione:', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->AsientosT, ['class' => 'form-control', 'id' => 'AsientosT', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('AsientosT', ['' => 'Seleccione', 'Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->AsientosT, ['class' => 'form-control', 'id' => 'AsientosT', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('AsientosT', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -279,21 +279,21 @@
     <div class="col">
         <div class="form-group">
             {{ Form::label('Permisos Circulacion: ') }}
-            {{ Form::select('PermisosCirculacion', ['' => 'Seleccione:', 'Si' => 'Si', 'No' => 'No'], $chequeo->PermisosCirculacion, ['class' => 'form-control', 'id' => 'PermisosCirculacion', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('PermisosCirculacion', ['' => 'Seleccione', 'Si' => 'Si', 'No' => 'No'], $chequeo->PermisosCirculacion, ['class' => 'form-control', 'id' => 'PermisosCirculacion', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('PermisosCirculacion', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('RTV: ') }}
-            {{ Form::select('RTV', ['' => 'Seleccione:', 'Si' => 'Si', 'No' => 'No'], $chequeo->RTV, ['class' => 'form-control', 'id' => 'RTV', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('RTV', ['' => 'Seleccione', 'Si' => 'Si', 'No' => 'No'], $chequeo->RTV, ['class' => 'form-control', 'id' => 'RTV', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('RTV', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label('Titulo Propiedad: ') }}
-            {{ Form::select('TituloPropiedad', ['' => 'Seleccione:', 'Si' => 'Si', 'No' => 'No'], $chequeo->TituloPropiedad, ['class' => 'form-control', 'id' => 'TituloPropiedad', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('TituloPropiedad', ['' => 'Seleccione', 'Si' => 'Si', 'No' => 'No'], $chequeo->TituloPropiedad, ['class' => 'form-control', 'id' => 'TituloPropiedad', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('TituloPropiedad', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -304,21 +304,21 @@
     <div class="col">
         <div class="form-group">
             {{ Form::label(' Delantera: ') }}
-            {{ Form::select('LlantaDelantera', ['' => 'Seleccione:','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LlantaDelantera, ['class' => 'form-control', 'id' => 'LlantaDelantera', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('LlantaDelantera', ['' => 'Seleccione','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LlantaDelantera, ['class' => 'form-control', 'id' => 'LlantaDelantera', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('LlantaDelantera', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label(' Repuesto: ') }}
-            {{ Form::select('LlantaRepuesto', ['' => 'Seleccione:','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LlantaRepuesto, ['class' => 'form-control', 'id' => 'LlantaRepuesto', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('LlantaRepuesto', ['' => 'Seleccione','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LlantaRepuesto, ['class' => 'form-control', 'id' => 'LlantaRepuesto', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('LlantaRepuesto', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
     <div class="col">
         <div class="form-group">
             {{ Form::label(' Trasera: ') }}
-            {{ Form::select('LlantaTrasera', ['' => 'Seleccione:','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LlantaTrasera, ['class' => 'form-control', 'id' => 'LlantaTrasera', 'onchange' => 'cambioUnidad();', 'required']) }}
+            {{ Form::select('LlantaTrasera', ['' => 'Seleccione','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LlantaTrasera, ['class' => 'form-control', 'id' => 'LlantaTrasera', 'onchange' => 'cambioUnidad();', 'required']) }}
             {!! $errors->first('LlantaTrasera', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
     </div>
@@ -328,7 +328,7 @@
     <div class="col">
     <div class="form-group">
         {{ Form::label('Tuercas: ') }}
-        {{ Form::select('Tuercas', ['' => 'Seleccione:','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Tuercas, ['class' => 'form-control', 'id' => 'Tuercas', 'onchange' => 'cambioUnidad();', 'required']) }}
+        {{ Form::select('Tuercas', ['' => 'Seleccione','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Tuercas, ['class' => 'form-control', 'id' => 'Tuercas', 'onchange' => 'cambioUnidad();', 'required']) }}
         {!! $errors->first('Tuercas', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
     </div>
 </div>
@@ -336,7 +336,7 @@
 <div class="col">
 <div class="form-group">
     {{ Form::label('Espejo Retrovisor: ') }}
-    {{ Form::select('EspejoRetrovisor', ['' => 'Seleccione:','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->EspejoRetrovisor, ['class' => 'form-control', 'id' => 'EspejoRetrovisor', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('EspejoRetrovisor', ['' => 'Seleccione','Bueno' =>'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->EspejoRetrovisor, ['class' => 'form-control', 'id' => 'EspejoRetrovisor', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('EspejoRetrovisor', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
 
@@ -347,7 +347,7 @@
     <div class="col">
     <div class="form-group">
     {{ Form::label('Gata: ') }}
-    {{ Form::select('Gata', ['Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Gata, ['class' => 'form-control', 'id' => 'Gata', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('Gata', ['' => 'Seleccione','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Gata, ['class' => 'form-control', 'id' => 'Gata', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('Gata', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
   </div>
@@ -355,7 +355,7 @@
       <div class="col">
       <div class="form-group">
     {{ Form::label('Llave Rana: ') }}
-    {{ Form::select('LlaveRana', ['Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LlaveRana, ['class' => 'form-control', 'id' => 'LlaveRana', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('LlaveRana', ['' => 'Seleccione','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->LlaveRana, ['class' => 'form-control', 'id' => 'LlaveRana', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('LlaveRana', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
 </div>
@@ -363,7 +363,7 @@
 <div class="col">
 <div class="form-group">
     {{ Form::label('Lingas: ') }}
-    {{ Form::select('Lingas', ['Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Lingas, ['class' => 'form-control', 'id' => 'Lingas', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('Lingas', ['' => 'Seleccione','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Lingas, ['class' => 'form-control', 'id' => 'Lingas', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('Lingas', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
 </div>
@@ -373,7 +373,7 @@
 <div class="col">
 <div class="form-group">
     {{ Form::label('Juego Llaves: ') }}
-    {{ Form::select('JuegoLlaves', ['Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->JuegoLlaves, ['class' => 'form-control', 'id' => 'JuegoLlaves', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('JuegoLlaves', ['' => 'Seleccione','Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->JuegoLlaves, ['class' => 'form-control', 'id' => 'JuegoLlaves', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('JuegoLlaves', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
 </div>
@@ -383,7 +383,7 @@
 <div class="col">
 <div class="form-group">
     {{ Form::label('Bumper: ') }}
-    {{ Form::select('Bumper', ['Bueno' => 'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Bumper, ['class' => 'form-control', 'id' => 'Bumper', 'onchange' => 'cambioUnidad();', 'required']) }}
+    {{ Form::select('Bumper', ['' => 'Seleccione','Bueno' =>'Bueno', 'Regular' => 'Regular', 'Malo' => 'Malo'], $chequeo->Bumper, ['class' => 'form-control', 'id' => 'Bumper', 'onchange' => 'cambioUnidad();', 'required']) }}
     {!! $errors->first('Bumper', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
 </div>
 </div>

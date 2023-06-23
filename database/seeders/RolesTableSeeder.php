@@ -20,7 +20,7 @@ class RolesTableSeeder extends Seeder
        // DB::table('users')->where('email', 'da598298@gmail.com')->delete();
 
         DB::table('roles')->insert([
-            'NombreRol' => 'superAdmin',
+            'NombreRol' => 'SuperAdmin',
         ]);
         DB::table('roles')->insert([
             'NombreRol' => 'Administrador',

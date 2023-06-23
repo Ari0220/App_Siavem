@@ -66,6 +66,22 @@
             justify-content: space-between;
             margin-top: 20px;
         }
+        .container {
+  text-align: center; /* Para centrar los bloques horizontalmente */
+}
+
+.Firma1,
+.Firma2 {
+  display: inline-block; /* Para alinear los bloques horizontalmente */
+  vertical-align: top; /* Para alinear los bloques superiormente */
+}
+.Firma1 {
+  margin-right: 20px; /* Agrega espacio a la derecha de la primera firma */
+}
+
+.Firma2 {
+  margin-left: 20px; /* Agrega espacio a la izquierda de la segunda firma */
+}
     </style>
     <img src="images/logos.png" alt="Logo"  height="80">
 </head>
@@ -173,18 +189,21 @@
     </div>
     <br>
     <br>
-   <div class="Firma1">
-   <h5>Firma del encargado de la inspeccion</h5>
+    <div class="container">
+  <div class="Firma1">
+    <h5>Firma del encargado de la inspección</h5>
     <br>
     <h5>________________________________</h5>
     <br>
+  </div>
+  
+  <div class="Firma2">
+    <h5>Firma del encargado de la Gira</h5>
+    <br>
+    <h5>________________________________</h5>
+  </div>
+</div>
 
-   </div>
-   <div class="Firma2">
-   <h5>Firma del encargado de la Gira</h5>
-    <br>
-    <h5>________________________________</h5>
-   </div>
 </body>
 
 </html>

@@ -209,7 +209,7 @@
 
                              <div class="float-right">
                                
-                                <a href="{{ route('licencias') }}" class="btn btn-danger btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('licencias') }}" class="btn btn-warning btn-sm float-right"  data-placement="left">
                                     {{ __('Aviso Licencia') }}
                                   </a>
                               </div>

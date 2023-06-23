@@ -26,6 +26,15 @@
     font-family: 'EB Garamond', serif;
     font-size: 1.2rem;
   }
+  .navbar-nav .nav-item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem;
+}
+
  </style>
 
 </head>
@@ -57,12 +66,12 @@
                                     <b> Agregar </b>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                    <a class="nav-link" href="{{ route('estados.index') }}"><b>{{ __('Estados') }}</b>
+                                    <a class="nav-link" href="{{ route('estados.index') }}"><b>{{ __('Estado') }}</b>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('tlicencias.index') }}"><b>{{ __('Tipo Licencia') }}</b> </a>
                                     <a class="nav-link"
-                                        href="{{ route('combustibles.index') }}"><b>{{ __('Tipo Combustibles') }}</b>
+                                        href="{{ route('combustibles.index') }}"><b>{{ __('Tipo Combustible') }}</b>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('tracciones.index') }}"><b>{{ __('Tipo Tracción') }}</b> </a>
@@ -77,7 +86,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                     <a class="dropdown-item" href="{{ route('departamentos.index') }}"> <b>
                                             Departamento</b> </a>
-                                    <a class="dropdown-item" href="{{ route('empleados.index') }}"> <b>Empleados</b>
+                                    <a class="dropdown-item" href="{{ route('empleados.index') }}"> <b>Empleado</b>
                                     </a>
 
 
@@ -89,7 +98,7 @@
                             <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <b> Roles </b>
+                                    <b> Rol</b>
                                     </a>   
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                 <a class="nav-link"
@@ -102,13 +111,13 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <b>Vehículos</b>
+                                    <b>Vehículo</b>
 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                     <a class="dropdown-item"
-                                        href="{{ route('categorias.index') }}"><b>Categorías</b></a>
-                                    <a class="dropdown-item" href="{{ route('unidades.index') }}"><b>Unidades</b></a>
+                                        href="{{ route('categorias.index') }}"><b>Categoría</b></a>
+                                    <a class="dropdown-item" href="{{ route('unidades.index') }}"><b>Unidad</b></a>
 
 
                                 </div>
@@ -118,14 +127,14 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <b>Mantenimientos</b>
+                                    <b>Mantenimiento</b>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                <a class="dropdown-item" href="{{ route('talleres.index') }}"><b>Talleres</b>
+                                <a class="dropdown-item" href="{{ route('talleres.index') }}"><b>Taller</b>
                                 </a>
-                                    <a class="dropdown-item" href="{{ route('preventivos.index') }}"><b>Preventivos</b>
+                                    <a class="dropdown-item" href="{{ route('preventivos.index') }}"><b>Preventivo</b>
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('correctivos.index') }}"><b>Correctivos</b>
+                                    <a class="dropdown-item" href="{{ route('correctivos.index') }}"><b>Correctivo</b>
                                     </a>
 
 
@@ -140,8 +149,8 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                     <a class="dropdown-item"
-                                        href="{{ route('motocicletas.index') }}"><b>Motocicletas</b></a>
-                                    <a class="dropdown-item" href="{{ route('chequeos.index') }}"><b>Automóviles</b></a>
+                                        href="{{ route('motocicletas.index') }}"><b>Motocicleta</b></a>
+                                    <a class="dropdown-item" href="{{ route('chequeos.index') }}"><b>Automóvil y Buseta</b></a>
 
 
                                 </div>
