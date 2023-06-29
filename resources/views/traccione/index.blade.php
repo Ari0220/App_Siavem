@@ -202,7 +202,7 @@
                                     <tr>
                                         
                                         
-										<th>ID</th>
+								<!--		<th>ID</th>-->   
 										<th>Nombre</th>
 
                                         <th>Acciones</th>
@@ -212,7 +212,7 @@
                                     @foreach ($tracciones as $traccione)
                                         <tr>
                                             
-                                        <td>{{$traccione->idTraccion }}</td>
+                                     <!--   <td>{{$traccione->idTraccion }}</td>-->   
 
 
 											<td>{{ $traccione->nombreTraccion }}</td>

@@ -197,7 +197,7 @@
                                 <thead class="thead">
                                     <tr>
                                         
-										<th>ID </th>
+									<!--	<th>ID </th>-->   
 										<th>Nombre</th>
 
                                         <th>Acciones</th>
@@ -206,7 +206,7 @@
                                 <tbody>
                                     @foreach ($combustibles as $combustible)
                                         <tr>
-                                        <td>{{ $combustible->idCombustibles }}</td>
+                                       <!-- <td>{{ $combustible->idCombustibles }}</td>-->   
                                        
 											<td>{{ $combustible->nombreCombustibles }}</td>
 

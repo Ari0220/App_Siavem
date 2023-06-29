@@ -59,10 +59,10 @@ class EmpleadoController extends Controller
             $fecha = $empleadosLicenciaVencida[$a]['FechaVencimiento'];
 
             $emai = "da598298@gmail.com";
-            $messages = "Estimado $nombre $apellido1 $apellido2 con cedula $cedula le avisamos que su licencia esta pronto a vencer, su fecha de vencimiento es $fecha.";
-    
+            $messages = "Estimado(a) $nombre $apellido1 $apellido2, Le informamos que su licencia está próxima a vencer. La fecha de vencimiento es $fecha, por lo que le recomendamos que tome las medidas necesarias para renovarla antes de esa fecha.";
+            $message = "Estimado encargado de la unidad de transporte, Le informo que el colaborador $nombre $apellido1 $apellido2, con cédula $cedula, tiene su licencia próxima a vencer. La fecha de vencimiento es $fecha.";
             Mail::to($email)->send(new avisoLicenciaMail($email,$messages));
-            Mail::to($emai)->send(new avisoLicenciaMail($emai,$messages));
+            Mail::to($emai)->send(new avisoLicenciaMail($emai,$message));
 
         }
 

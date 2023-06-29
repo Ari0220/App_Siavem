@@ -354,7 +354,7 @@ Generic layout (demo looks)
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" style="justify-content: center;">
-      <img src="images/SIAVEMWd.webp" alt="Slide 1"> 
+      <img src="images/SIAVEMWd.jpg" alt="Slide 1"> 
     </div>
     <div class="carousel-item" style="justify-content: center; width" >
       <img src="images/Siavem1.webp" alt="Slide 2">

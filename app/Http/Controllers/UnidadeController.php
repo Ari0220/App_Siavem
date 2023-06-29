@@ -70,7 +70,8 @@ class UnidadeController extends Controller
             $placa = $unidadesRTVVencido[$a]['placa'];
             $fecha = $unidadesRTVVencido[$a]['RVT'];
             $email = "da598298@gmail.com";
-            $messages = "La unidad placa $placa se vence el rtv en la fecha $fecha.";
+            $messages = "Le informo que la unidad con placa $placa requerirá la renovación del Revisión Técnica Vehicular (RTV) en la fecha $fecha. Por favor, tome las medidas necesarias para completar este trámite antes de la fecha de vencimiento.";
+
     
             Mail::to($email)->send(new AvisoRTVMail($email,$messages));
         }

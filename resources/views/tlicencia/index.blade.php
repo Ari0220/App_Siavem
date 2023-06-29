@@ -196,7 +196,7 @@
                                 <thead class="thead">
                                     <tr>
                                        
-										<th>ID</th>
+										<!--<th>ID</th>-->   
 										<th>Nombre</th>
                     <th>Acciones</th>
 
@@ -207,7 +207,7 @@
                                     @foreach ($tlicencias as $tlicencia)
                                         <tr>
                                         
-											<td>{{ $tlicencia->idTL }}</td>
+								<!--			<td>{{ $tlicencia->idTL }}</td>-->   
 											<td>{{ $tlicencia->nombreTL }}</td>
 
                                             <td>

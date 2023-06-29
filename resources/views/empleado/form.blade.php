@@ -4,7 +4,7 @@
       
     <div class="form-group">
             {{ Form::label('departamento') }}
-            {{ Form::select('departamento_id',$departamento,$empleado->departamento_id, ['class' => 'form-control' . ($errors->has('departamento_id') ? ' is-invalid' : ''), 'placeholder' => '']) }}
+            {{ Form::select('departamento_id',$departamento,$empleado->departamento_id, ['class' => 'form-control' . ($errors->has('departamento_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione']) }}
             {!! $errors->first('departamento_id', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
         </div>
         <div class="form-group">

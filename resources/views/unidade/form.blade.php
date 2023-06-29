@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-group">
                   {{ Form::label('placa') }}
-                  {{ Form::text('placa', (strpos($unidade->placa, 'MS-') !== false) ? $unidade->placa : 'MS-', ['id' => 'placa', 'name' => 'placa', 'class' => 'form-control' . ($errors->has('placa') ? ' is-invalid' : ''), 'placeholder' => 'Placa', 'pattern' => '^MS-\d{4}$']) }}
+                  {{ Form::text('placa', (strpos($unidade->placa, 'SM-') !== false) ? $unidade->placa : 'SM-', ['id' => 'placa', 'name' => 'placa', 'class' => 'form-control' . ($errors->has('placa') ? ' is-invalid' : ''), 'placeholder' => 'Placa', 'pattern' => '^MS-\d{4}$']) }}
                   {!! $errors->first('placa', '<div class="invalid-feedback">Campo Obligatorio</div>') !!}
                 </div>
 
@@ -84,8 +84,8 @@
                 {{ Form::label('modelo', 'Modelo') }}
                 {{ Form::text('modelo', $unidade->modelo, ['class' => 'form-control' . ($errors->has('modelo') ? ' is-invalid' : ''), 'placeholder' => 'Modelo', 'pattern' => '^[A-Z][a-zA-Z\s]*$', 'title' => 'Ingrese una sola palabra con la primera letra mayúscula', 'oninput' => 'validateFormat(this, /^[A-Z][a-zA-Z\s]*$/, "El modelo debe tener una sola palabra con la primera letra mayúscula.")']) }}
                <div id="modelo-error" class="invalid-feedback" style="display: none;"></div>
-               </div>
-              
+               </div>                    
+                                                     
                <br>
                <!-- Botón para ir al índice -->
                <a href="{{ route('unidades.index') }}" class="btn btn-warning">

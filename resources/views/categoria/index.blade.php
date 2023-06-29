@@ -194,7 +194,7 @@
                                 <thead class="thead">
                                     <tr>
                                        
-                                    <th>ID</th>                 
+                          <!--      <th>ID</th>    -->             
 										<th>Nombre</th>
                                         <th>Acciones</th>
                                         <th></th>
@@ -203,7 +203,7 @@
                                 <tbody>
                                     @foreach ($categorias as $categoria)
                                         <tr>
-                                        <td>{{ $categoria->id }}</td>           
+                                     <!--   <td>{{ $categoria->id }}</td>           -->
                                             
 											<td>{{ $categoria->nombre }}</td>
                                             

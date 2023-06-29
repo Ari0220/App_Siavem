@@ -265,7 +265,7 @@ width: 40px;
                                 <thead class="thead">
                                     <tr>
                      
-										<th>Codigo Solicitud</th>
+										<!--<th>Codigo Solicitud</th>-->   
 										<th>Vehiculo</th>
 										<th>Departamento</th>
 										<th>Responsable de la Gira</th>

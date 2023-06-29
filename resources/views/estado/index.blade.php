@@ -183,7 +183,7 @@
                                 <thead class="thead">
                                     <tr>
                                       
-										<th>ID </th>
+									<!--	<th>ID </th>-->   
 										<th>Estado</th>
                     <th>Acciones</th>
 
@@ -195,7 +195,7 @@
                                         <tr>
                                           
                                             
-											<td>{{ $estado->idEstados }}</td>
+									<!--		<td>{{ $estado->idEstados }}</td>-->   
 											<td>{{ $estado->nombreEstados }}</td>
                  
                       <td>
